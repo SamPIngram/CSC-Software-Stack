@@ -2,7 +2,7 @@
 # Alpine X11 Display Container (noVNC)
 ```
 ```
-This image is intended to be used for displaying X11 applications from other containers in a browser. A stand-alone demo as well as a [Version 2](https://docs.docker.com/compose/compose-file/#version-2) composition. Thanks to [Alpine](https://hub.docker.com/_/alpine/), this image is < 100Mb and eliminates the need to run an X11 server on your host machine.
+This image is intended to be used for displaying X11 applications from other containers in a browser. A stand-alone demo as well as a [Version 2](https://docs.docker.com/compose/compose-file/#version-2) docker composition. Thanks to [Alpine](https://hub.docker.com/_/alpine/), this image is < 100Mb and eliminates the need to run an X11 server on your host machine.
 
 ## Image Contents
 ___
