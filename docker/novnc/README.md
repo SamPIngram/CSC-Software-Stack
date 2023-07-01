@@ -65,7 +65,7 @@ networks:
 **If the IDE fails to start simply run `docker-compose restart <container-name>`.** 
 ## On DockerHub / GitHub
 ___
-* DockerHub [sampingram/novnc](https://hub.docker.com/r/sampingram/novnc/)
+* Docker Image [sampingram/novnc](https://github.com/SamPIngram/CSC-Software-Stack/pkgs/container/csc-novnc)
 * GitHub [sampingram/CSC-Software-Stack/docker/novnc](https://github.com/SamPIngram/CSC-Software-Stack/tree/main/docker/novnc)
 
 # Thanks
