@@ -47,7 +47,7 @@ license is MPL-2.0.
 
 License texts may be found here:
 
-    [MPL-2.0](http://www.mozilla.org/MPL/2.0/)
-    [OFL-1.1](http://scripts.sil.org/OFL)
-    [BSD-3-Clause (New BSD) & BSD-2-Clause (Simplified BSD / FreeBSD)](http://en.wikipedia.org/wiki/BSD_licenses)
-    [MIT](https://opensource.org/licenses/MIT
+[MPL-2.0](http://www.mozilla.org/MPL/2.0/)
+[OFL-1.1](http://scripts.sil.org/OFL)
+[BSD-3-Clause (New BSD) & BSD-2-Clause (Simplified BSD / FreeBSD)](http://en.wikipedia.org/wiki/BSD_licenses)
+[MIT](https://opensource.org/licenses/MIT
