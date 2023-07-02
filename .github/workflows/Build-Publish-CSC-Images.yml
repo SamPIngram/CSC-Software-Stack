@@ -42,7 +42,7 @@ jobs:
       - name: Build and push Docker image Drill4Net.Agent.Service
         uses: docker/build-push-action@v4
         with:
-          context: ./docker/novnc/
+          context: .
           file: ${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
