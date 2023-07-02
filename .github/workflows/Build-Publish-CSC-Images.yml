@@ -15,8 +15,10 @@ jobs:
       matrix:
         include:
           - dockerfile: ./docker/novnc/Dockerfile
+            context: ./docker/novnc/
             image: ghcr.io/sampingram/csc-novnc
           - dockerfile: ./docker/code-server-base/Dockerfile
+            context: ./docker/code-server-base/
             image: ghcr.io/sampingram/csc-code-server-base
     permissions:
       contents: read
@@ -42,7 +44,7 @@ jobs:
       - name: Build and push Docker image Drill4Net.Agent.Service
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ${{ matrix.context }}
           file: ${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
