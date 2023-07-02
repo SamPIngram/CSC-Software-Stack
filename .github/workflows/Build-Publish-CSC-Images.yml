@@ -16,6 +16,8 @@ jobs:
         include:
           - dockerfile: ./docker/novnc/Dockerfile
             image: ghcr.io/sampingram/csc-novnc
+          - dockerfile: ./docker/code-server-base/Dockerfile
+            image: ghcr.io/sampingram/csc-code-server-base
     permissions:
       contents: read
       packages: write
