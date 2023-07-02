@@ -1,4 +1,3 @@
-[![](https://badge.imagelayers.io/psharkey/novnc:latest.svg)](https://imagelayers.io/?images=psharkey/novnc:latest 'Get your own badge on imagelayers.io')
 # Alpine X11 Display Container (noVNC)
 ```
 ```
