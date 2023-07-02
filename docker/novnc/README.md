@@ -23,7 +23,7 @@ $ docker-machine ip $(docker-machine active)
 ```
 Run: 
 ```bash
-$ docker run --rm -it -p 8080:8080 psharkey/novnc
+$ docker run --rm -it -p 8080:8080 ghcr.io/sampingram/csc-novnc:latest
 ```
 Open a browser and hit the *Connect* button to see the `xterm` demo at `http://<DOCKER_MACHINE_IP>:8080/vnc.html`
 ### V2 Composition
