@@ -3,7 +3,8 @@ FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
 # set version label
 ARG BUILD_DATE
 ARG VERSION
-ARG CODE_RELEASE
+ARG CODE_RELEASE=4.14.1
+# latest version can be seen here: https://api.github.com/repos/coder/code-server/releases/latest
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -21,10 +22,6 @@ RUN \
     netcat \
     sudo && \
   echo "**** install code-server ****" && \
-  if [ -z ${CODE_RELEASE+x} ]; then \
-    CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
-      | awk '/tag_name/{print $4;exit}' FS='[""]' | sed 's|^v||'); \
-  fi && \
   mkdir -p /app/code-server && \
   curl -o \
     /tmp/code-server.tar.gz -L \
