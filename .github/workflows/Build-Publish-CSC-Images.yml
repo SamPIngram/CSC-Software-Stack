@@ -20,6 +20,9 @@ jobs:
           - dockerfile: ./docker/code-server-base/Dockerfile
             context: ./docker/code-server-base/
             image: ghcr.io/sampingram/csc-code-server-base
+          - dockerfile: ./docker/python-code-server/Dockerfile
+            context: ./docker/python-code-server/
+            image: ghcr.io/sampingram/csc-python-code-server
     permissions:
       contents: read
       packages: write
