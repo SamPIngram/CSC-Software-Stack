@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [[ $1 == 'build' ]]; then
+    csc -r:/opt/VMS.TPS.Common.Model.API.dll -r:/opt/VMS.TPS.Common.Model.Types.dll $2
+elif [[ $1 == 'new' ]]; then
+    if [[ -z $3 ]]; then
+        SCRIPT_NAME="esapi-script"
+    else
+        SCRIPT_NAME=$3
+    fi
+    if [[ $2 == 'plugin' ]]; then
+        mkdir $SCRIPT_NAME
+        cp /opt/plugin/template.cs ./$SCRIPT_NAME/$SCRIPT_NAME.cs
+    elif [[ $2 == 'binary' ]]; then
+        mkdir $SCRIPT_NAME
+        cp /opt/binary/template.cs ./$SCRIPT_NAME/$SCRIPT_NAME.cs
+        cp /opt/binary/template.csproj ./$SCRIPT_NAME/$SCRIPT_NAME.csproj
+    elif [[ $2 == 'executable' ]]; then
+        mkdir $SCRIPT_NAME
+        cp /opt/executable/template.cs ./$SCRIPT_NAME/$SCRIPT_NAME.cs
+        cp /opt/executable/template.csproj ./$SCRIPT_NAME/$SCRIPT_NAME.csproj
+    else
+        echo Define type: e.g. 'esapi new [plugin|binary|executable]'
+    fi
+elif [[ $1 == 'version' ]]; then
+    if [[ -z $2 ]]; then
+        echo v16.0
+    else
+        VERSION=$2
+        echo $VERSION
+    fi
+fi
+
+# USE an EXPORT / ENV to set version
