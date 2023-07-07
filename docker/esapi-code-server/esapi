@@ -1,7 +1,25 @@
 #!/bin/bash
 
+Help()
+{
+   # Display Help
+   echo "----ESAPI HELPER----"
+   echo
+   echo "Syntax: esapi [build|new|version]"
+   echo "options:"
+   echo "build - give additional argument of the *.cs file you want to be built."
+   echo "new - follow-up with [plugin|binary|executable] to get template files created give a project name additionally (defaults to esapi-script)."
+   echo "version - get information about current version of ESAPI being used for 'build' and 'new'."
+   echo
+}
+
+VERSION_LIST="15.6 16.0 16.1 17.0"
 if [[ $1 == 'build' ]]; then
-    csc -r:/opt/VMS.TPS.Common.Model.API.dll -r:/opt/VMS.TPS.Common.Model.Types.dll $2
+    if [[ -z $2 ]]; then
+        echo "Invalid argument: Need to provide .cs file to build"
+    else
+        csc -r:/opt/$ESAPI_VERSION/VMS.TPS.Common.Model.API.dll -r:/opt/$ESAPI_VERSION/VMS.TPS.Common.Model.Types.dll $2
+    fi
 elif [[ $1 == 'new' ]]; then
     if [[ -z $3 ]]; then
         SCRIPT_NAME="esapi-script"
@@ -20,15 +38,31 @@ elif [[ $1 == 'new' ]]; then
         cp /opt/executable/template.cs ./$SCRIPT_NAME/$SCRIPT_NAME.cs
         cp /opt/executable/template.csproj ./$SCRIPT_NAME/$SCRIPT_NAME.csproj
     else
-        echo Define type: e.g. 'esapi new [plugin|binary|executable]'
+        echo "Invalid argument: Define project type: e.g. 'esapi new [plugin|binary|executable]'"
     fi
 elif [[ $1 == 'version' ]]; then
     if [[ -z $2 ]]; then
-        echo v16.0
-    else
-        VERSION=$2
-        echo $VERSION
+        echo $ESAPI_VERSION
+    elif [[ $2 == 'set' ]]; then
+        for item in $VERSION_LIST
+        do
+            if [[ $3 == "$item" ]]; then               
+                ESAPI_VERSION=$3 # can't pass up from subshell to usr shell. find soltuon...
+                echo "ATTENTION: ESAPI Version can be updated, but currently not directly in the helper. Execute the below command to update the version:"
+                echo "export ESAPI_VERSION=$3"
+                exit
+            fi
+        done
+        echo "FAILUE: $3 is not a suitable version. Use esapi version list to see supported versions."
+    elif [[ $2 == 'list' ]]; then
+        echo "Supported Versions below. Choose version using 'set' e.g. esapi version set 16.1"
+        for item in $VERSION_LIST
+        do
+            echo "$item"
+        done 
     fi
+elif [[ $1 == 'help' ]]; then
+    Help
+else
+    Help
 fi
-
-# USE an EXPORT / ENV to set version

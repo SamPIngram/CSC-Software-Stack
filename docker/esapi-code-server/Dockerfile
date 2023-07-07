@@ -18,8 +18,11 @@ RUN \
     rm -rf packages-microsoft-prod.deb && \
     apt update && \
     apt install -y dotnet-sdk-6.0
-# TODO add commands for setting up templates
-RUN echo '#!/bin/bash\ncsc -r:/opt/VMS.TPS.Common.Model.API.dll -r:/opt/VMS.TPS.Common.Model.Types.dll "$@"' > /usr/bin/esapi && \
-    chmod +x /usr/bin/esapi
+# # TODO add commands for setting up templates
+# RUN echo '#!/bin/bash\ncsc -r:/opt/VMS.TPS.Common.Model.API.dll -r:/opt/VMS.TPS.Common.Model.Types.dll "$@"' > /usr/bin/esapi && \
+#     chmod +x /usr/bin/esapi
 
 COPY ./ESAPI_Dlls /opt
+COPY ./esapi /usr/bin
+
+ENV ESAPI_VERSION=16.1
