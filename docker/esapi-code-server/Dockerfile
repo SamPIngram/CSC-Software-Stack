@@ -13,9 +13,6 @@ RUN \
     echo "deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list && \
     apt update && \
     apt install -y mono-devel && \
-    wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb && \
-    dpkg -i packages-microsoft-prod.deb && \
-    rm -rf packages-microsoft-prod.deb && \
     apt update && \
     apt install -y dotnet-sdk-6.0
 # # TODO add commands for setting up templates
