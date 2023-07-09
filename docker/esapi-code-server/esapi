@@ -27,16 +27,25 @@ elif [[ $1 == 'new' ]]; then
         SCRIPT_NAME=$3
     fi
     if [[ $2 == 'plugin' ]]; then
-        mkdir $SCRIPT_NAME
-        cp /opt/plugin/template.cs ./$SCRIPT_NAME/$SCRIPT_NAME.cs
+        if [ ! -d 'Plugins' ]; then
+            mkdir Plugins
+        cp /opt/templates/Plugins/plugin.cs ./Plugins/$SCRIPT_NAME.cs
+        if [ ! -d 'Projects' ]; then
+            mkdir Projects
+        mkdir ./Projects/$SCRIPT_NAME,
+        cp /opt/templates/Projects/plugin/plugin.csproj ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.csproj
     elif [[ $2 == 'binary' ]]; then
-        mkdir $SCRIPT_NAME
-        cp /opt/binary/template.cs ./$SCRIPT_NAME/$SCRIPT_NAME.cs
-        cp /opt/binary/template.csproj ./$SCRIPT_NAME/$SCRIPT_NAME.csproj
+        if [ ! -d 'Projects' ]; then
+            mkdir Projects
+        mkdir ./Projects/$SCRIPT_NAME
+        cp /opt/templates/Projects/binary/binary.cs ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.cs
+        cp /opt/templates/Projects/binary/binary.csproj ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.csproj
     elif [[ $2 == 'executable' ]]; then
-        mkdir $SCRIPT_NAME
-        cp /opt/executable/template.cs ./$SCRIPT_NAME/$SCRIPT_NAME.cs
-        cp /opt/executable/template.csproj ./$SCRIPT_NAME/$SCRIPT_NAME.csproj
+        if [ ! -d 'Projects' ]; then
+            mkdir Projects
+        mkdir ./Projects$SCRIPT_NAME
+        cp /opt/templates/Projects/executable/executable.cs ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.cs
+        cp /opt/templates/Projects/executable/executable.csproj ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.csproj
     else
         echo "Invalid argument: Define project type: e.g. 'esapi new [plugin|binary|executable]'"
     fi
