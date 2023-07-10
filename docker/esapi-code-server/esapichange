@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cp /opt/$1/VMS.TPS.Common.Model.API.dll /opt/VMS.TPS.Common.Model.API.dll
+cp /opt/$1/VMS.TPS.Common.Model.API.xml /opt/VMS.TPS.Common.Model.API.xml
+cp /opt/$1/VMS.TPS.Common.Model.Types.dll /opt/VMS.TPS.Common.Model.Types.dll
+cp /opt/$1/VMS.TPS.Common.Model.Types.xml /opt/VMS.TPS.Common.Model.Types.xml
+
+echo "ESAPI model files updated to v$1."

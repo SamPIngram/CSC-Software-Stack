@@ -20,6 +20,8 @@ RUN \
 #     chmod +x /usr/bin/esapi
 
 COPY ./ESAPI_Dlls /opt
+COPY ./templates /opt
 COPY ./esapi /usr/bin
+COPY ./esapichange /usr/bin
 
 ENV ESAPI_VERSION=16.1

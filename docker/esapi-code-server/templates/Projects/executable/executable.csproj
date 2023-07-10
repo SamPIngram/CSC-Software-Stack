@@ -42,11 +42,11 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="VMS.TPS.Common.Model.API">
-      <HintPath>/opt/16.0/VMS.TPS.Common.Model.API.dll</HintPath>
+      <HintPath>/opt/VMS.TPS.Common.Model.API.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="VMS.TPS.Common.Model.Types">
-      <HintPath>/opt/16.0/VMS.TPS.Common.Model.Types.dll</HintPath>
+      <HintPath>/opt/VMS.TPS.Common.Model.Types.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

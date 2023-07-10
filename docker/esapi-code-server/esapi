@@ -13,12 +13,12 @@ Help()
    echo
 }
 
-VERSION_LIST="15.6 16.0 16.1 17.0"
+VERSION_LIST="16.0 16.1"
 if [[ $1 == 'build' ]]; then
     if [[ -z $2 ]]; then
         echo "Invalid argument: Need to provide .cs file to build"
     else
-        csc -r:/opt/$ESAPI_VERSION/VMS.TPS.Common.Model.API.dll -r:/opt/$ESAPI_VERSION/VMS.TPS.Common.Model.Types.dll $2
+        csc -r:/opt/VMS.TPS.Common.Model.API.dll -r:/opt/VMS.TPS.Common.Model.Types.dll $2
     fi
 elif [[ $1 == 'new' ]]; then
     if [[ -z $3 ]]; then
@@ -29,23 +29,27 @@ elif [[ $1 == 'new' ]]; then
     if [[ $2 == 'plugin' ]]; then
         if [ ! -d 'Plugins' ]; then
             mkdir Plugins
-        cp /opt/templates/Plugins/plugin.cs ./Plugins/$SCRIPT_NAME.cs
+        fi
+        cp /opt/Plugins/plugin.cs ./Plugins/$SCRIPT_NAME.cs        
         if [ ! -d 'Projects' ]; then
             mkdir Projects
-        mkdir ./Projects/$SCRIPT_NAME,
-        cp /opt/templates/Projects/plugin/plugin.csproj ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.csproj
+        fi
+        mkdir ./Projects/$SCRIPT_NAME
+        cp /opt/Projects/plugin/plugin.csproj ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.csproj
     elif [[ $2 == 'binary' ]]; then
         if [ ! -d 'Projects' ]; then
             mkdir Projects
+        fi
         mkdir ./Projects/$SCRIPT_NAME
-        cp /opt/templates/Projects/binary/binary.cs ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.cs
-        cp /opt/templates/Projects/binary/binary.csproj ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.csproj
+        cp /opt/Projects/binary/binary.cs ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.cs
+        cp /opt/Projects/binary/binary.csproj ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.csproj
     elif [[ $2 == 'executable' ]]; then
         if [ ! -d 'Projects' ]; then
             mkdir Projects
-        mkdir ./Projects$SCRIPT_NAME
-        cp /opt/templates/Projects/executable/executable.cs ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.cs
-        cp /opt/templates/Projects/executable/executable.csproj ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.csproj
+        fi
+        mkdir ./Projects/$SCRIPT_NAME
+        cp /opt/Projects/executable/executable.cs ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.cs
+        cp /opt/Projects/executable/executable.csproj ./Projects/$SCRIPT_NAME/$SCRIPT_NAME.csproj
     else
         echo "Invalid argument: Define project type: e.g. 'esapi new [plugin|binary|executable]'"
     fi
@@ -57,8 +61,8 @@ elif [[ $1 == 'version' ]]; then
         do
             if [[ $3 == "$item" ]]; then               
                 ESAPI_VERSION=$3 # can't pass up from subshell to usr shell. find soltuon...
-                echo "ATTENTION: ESAPI Version can be updated, but currently not directly in the helper. Execute the below command to update the version:"
-                echo "export ESAPI_VERSION=$3"
+                echo "ATTENTION: ESAPI Version is viable. Run below command to switch:"
+                echo "esapichange $3 && export ESAPI_VERSION=$3"
                 exit
             fi
         done
