@@ -15,3 +15,7 @@ These docker images make the base for the applications available in the CSC Soft
 - C++
 - C
 - R-studio (if open license)
+- GATE
+- Geant4
+- TOPAS (Check license)
+- Conda? (Permissions issues currently)
