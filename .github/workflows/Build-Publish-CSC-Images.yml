@@ -36,18 +36,6 @@ jobs:
             context: ./docker/python-code-server/
             image: ghcr.io/sampingram/csc-python-code-server-3.7
             buildargs: PY_VERSION=3.7
-          - dockerfile: ./docker/python-code-server/Dockerfile
-            context: ./docker/python-code-server/
-            image: ghcr.io/sampingram/csc-python-code-server-3.6
-            buildargs: PY_VERSION=3.6
-          - dockerfile: ./docker/python-code-server/Dockerfile
-            context: ./docker/python-code-server/
-            image: ghcr.io/sampingram/csc-python-code-server-3.5
-            buildargs: PY_VERSION=3.5
-          - dockerfile: ./docker/python-code-server/Dockerfile
-            context: ./docker/python-code-server/
-            image: ghcr.io/sampingram/csc-python-code-server-2.7
-            buildargs: PY_VERSION=2.7
     permissions:
       contents: read
       packages: write
