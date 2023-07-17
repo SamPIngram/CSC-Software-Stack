@@ -9,6 +9,7 @@
         "env": [
           {
             "name": "PYTHON_VERSION",
+            "label": "PYTHON_VERSION",
             "select": [
               {
                 "text": "Python 3.11",
