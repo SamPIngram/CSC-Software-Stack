@@ -7,6 +7,29 @@
         ],
         "description": "Python Dev is VS Code running on a remote server, accessible through the browser.",
         "env": [
+          {
+            "name": "PYTHON_VERSION",
+            "label": "Select version of python",
+            "select": [
+              {
+                "text": "Python 3.11",
+                "value": "3.11",
+                "default": true
+              },
+              {
+                "text": "Python 3.9",
+                "value": "3.9"
+              },
+              {
+                "text": "Python 3.8",
+                "value": "3.8"
+              },
+              {
+                "text": "Python 3.7",
+                "value": "3.7"
+              }
+            ]
+          }
         ],
         "repository": {
           "url": "https://github.com/SamPIngram/CSC-Software-Stack",
