@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   code-server:
-    image: ghcr.io/sampingram/csc-python-code-server:latest
+    image: ghcr.io/sampingram/csc-python-code-server-{{PYTHON_VERSION}}:latest
     container_name: code-server
     environment:
       - PUID=1000

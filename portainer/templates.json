@@ -3,9 +3,9 @@
     "templates": [
       {
         "categories": [
-          "Code Server"
+          "Python Dev"
         ],
-        "description": "Code-server is VS Code running on a remote server, accessible through the browser.",
+        "description": "Python Dev is VS Code running on a remote server, accessible through the browser.",
         "env": [
           {
             "default": "1000",
@@ -36,7 +36,7 @@
           },
           {
             "name": "PYTHON_VERSION",
-            "label": "Select version of python",
+            "label": "PYTHON_VERSION",
             "select": [
               {
                 "text": "Python 3.11",
@@ -58,7 +58,10 @@
             ]     
           }
         ],
-        "image": "ghcr.io/sampingram/csc-python-code-server-${{PYTHON_VERSION}}:latest",
+        "repository": {
+          "stackfile": "applications/python-dev/docker-compose.yml",
+          "url": "https://github.com/SamPIngram/CSC-Software-Stack"
+        },
         "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/code-server.png",
         "name": "code-server",
         "platform": "linux",
