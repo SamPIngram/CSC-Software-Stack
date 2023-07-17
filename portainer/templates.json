@@ -36,16 +36,16 @@
             "select": [
               {
                 "text": "0",
-                "value": "0",
+                "value": 0,
                 "default": true
               },
               {
                 "text": "1",
-                "value": "1"
+                "value": 1
               },
               {
                 "text": "2",
-                "value": "2"
+                "value": 2
               }
             ]
           },
