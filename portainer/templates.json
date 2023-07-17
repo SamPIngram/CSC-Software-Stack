@@ -31,6 +31,24 @@
             ]
           },
           {
+            "name": "NUM_GPU",
+            "select": [
+              {
+                "text": "0",
+                "value": 0,
+                "default": true
+              },
+              {
+                "text": "1",
+                "value": 1
+              },
+              {
+                "text": "2",
+                "value": 2
+              }
+            ]
+          },
+          {
             "label": "PASSWORD",
             "name": "PASSWORD"
           },
@@ -53,6 +71,10 @@
           {
             "bind": "/portainer/Files/AppData/Config/Code-Server",
             "container": "/config"
+          },
+          {
+            "bind": "/etc/ssl/certs:/etc/ssl/certs",
+            "container": "/etc/ssl/certs:/etc/ssl/certs"
           }
         ]
       }

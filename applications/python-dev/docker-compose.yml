@@ -10,8 +10,30 @@ services:
       - TZ=Etc/UTC
       - PASSWORD=${PASSWORD}
       - SUDO_PASSWORD=${SUDO_PASSWORD}
-      - PROXY_DOMAIN=code-server.my.domain
       - DEFAULT_WORKSPACE=/config/workspace
+      - DISPLAY=novnc:0.0
+    depends_on:
+      - novnc
+    networks:
+      - vscode
     ports:
       - :8443
     restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: ${NUM_GPU}
+            capabilities: [gpu]
+  novnc:
+    image: ghcr.io/sampingram/csc-novnc:v0.03
+    environment:
+      # Adjust to your screen size
+      - DISPLAY_WIDTH=1920
+      - DISPLAY_HEIGHT=1080
+      - RUN_XTERM=no
+    ports:
+      - :8080
+    networks:
+      - vscode
