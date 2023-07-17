@@ -33,9 +33,32 @@
             "default": "example.my.domain",
             "label": "PROXY_DOMAIN",
             "name": "PROXY_DOMAIN"
+          },
+          {
+            "name": "PYTHON_VERSION",
+            "label": "Select version of python",
+            "select": [
+              {
+                "text": "Python 3.11",
+                "value": "3.11",
+                "default": true
+              },
+              {
+                "text": "Python 3.9",
+                "value": "3.9"
+              },
+              {
+                "text": "Python 3.8",
+                "value": "3.8"
+              },
+              {
+                "text": "Python 3.7",
+                "value": "3.7"
+              }
+            ]     
           }
         ],
-        "image": "ghcr.io/sampingram/csc-code-server-base:latest",
+        "image": "ghcr.io/sampingram/csc-python-code-server-${{PYTHON_VERSION}}:latest",
         "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/code-server.png",
         "name": "code-server",
         "platform": "linux",
