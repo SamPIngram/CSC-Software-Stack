@@ -16,13 +16,13 @@
             "name": "SUDO_PASSWORD"
           }
         ],
-        "image": "docker.pkg.github.com/sampingram/csc-python-code-server-3.7:latest",
+        "repository": {
+          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+          "stackfile": "applications/python-dev/docker-compose.yml"
+        },
         "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/code-server.png",
         "name": "python-dev",
         "platform": "Linux",
-        "ports": [
-          ":8443/tcp"
-        ],
         "restart_policy": "unless-stopped",
         "title": "Python Dev",
         "type": 1,
