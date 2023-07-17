@@ -17,7 +17,7 @@
         "platform": "Linux",
         "restart_policy": "unless-stopped",
         "title": "Python Dev",
-        "type": 1,
+        "type": 3,
         "volumes": [
           {
             "bind": "/portainer/Files/AppData/Config/Code-Server",
