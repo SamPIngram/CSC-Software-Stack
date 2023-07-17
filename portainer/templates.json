@@ -8,6 +8,10 @@
         "description": "Python Dev is VS Code running on a remote server, accessible through the browser.",
         "env": [
           {
+            "name": "INSTANCE_ID",
+            "label": "INSTANCE_ID"
+          },
+          {
             "name": "PYTHON_VERSION",
             "label": "PYTHON_VERSION",
             "select": [
