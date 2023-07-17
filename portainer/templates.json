@@ -3,7 +3,7 @@
     "templates": [
       {
         "categories": [
-          "Python Dev 3.7"
+          "Python", "Development"
         ],
         "description": "Python Dev is VS Code running on a remote server, accessible through the browser.",
         "env": [
@@ -19,7 +19,7 @@
         "image": "docker.pkg.github.com/sampingram/csc-python-code-server-3.7:latest",
         "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/code-server.png",
         "name": "python-dev",
-        "platform": "linux",
+        "platform": "Linux",
         "ports": [
           ":8443/tcp"
         ],
