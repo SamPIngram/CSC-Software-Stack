@@ -8,8 +8,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - PASSWORD={{PASSWORD}}
-      - SUDO_PASSWORD={{SUDO_PASSWORD}}
+      - PASSWORD=${PASSWORD}
+      - SUDO_PASSWORD=${SUDO_PASSWORD}
       - PROXY_DOMAIN=code-server.my.domain
       - DEFAULT_WORKSPACE=/config/workspace
     ports:
