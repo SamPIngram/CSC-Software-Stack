@@ -16,9 +16,9 @@
             "name": "SUDO_PASSWORD"
           }
         ],
-        "image": "ghcr.io/sampingram/csc-python-code-server-3.7:latest",
+        "image": "https://ghcr.io/sampingram/csc-python-code-server-3.7:latest",
         "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/code-server.png",
-        "name": "code-server",
+        "name": "python-dev",
         "platform": "linux",
         "ports": [
           ":8443/tcp"
