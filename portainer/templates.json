@@ -9,7 +9,6 @@
         "env": [
           {
             "name": "PYTHON_VERSION",
-            "label": "Select version of python",
             "select": [
               {
                 "text": "Python 3.11",
@@ -29,6 +28,14 @@
                 "value": "3.7"
               }
             ]
+          },
+          {
+            "label": "PASSWORD",
+            "name": "PASSWORD"
+          },
+          {
+            "label": "SUDO_PASSWORD",
+            "name": "SUDO_PASSWORD"
           }
         ],
         "repository": {

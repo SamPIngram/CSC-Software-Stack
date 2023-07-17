@@ -2,14 +2,14 @@
 version: "2.1"
 services:
   code-server:
-    image: ghcr.io/sampingram/csc-python-code-server-3.7:latest
+    image: ghcr.io/sampingram/csc-python-code-server-${PYTHON_VERSION}:latest
     container_name: code-server
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - PASSWORD=${{PASSWORD}}
-      - SUDO_PASSWORD=${{SUDO_PASSWORD}}
+      - PASSWORD=${PASSWORD}
+      - SUDO_PASSWORD=${SUDO_PASSWORD}
       - PROXY_DOMAIN=code-server.my.domain
       - DEFAULT_WORKSPACE=/config/workspace
     ports:
