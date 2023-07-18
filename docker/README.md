@@ -4,6 +4,7 @@ These docker images make the base for the applications available in the CSC Soft
 
 ### Functionality to Add:
 - Licence checker CI
+- bill of materials software
 - Multiple language image building on release (github actions)
 
 ### Images TODO:
