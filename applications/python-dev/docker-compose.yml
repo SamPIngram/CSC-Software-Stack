@@ -37,3 +37,5 @@ services:
       - :8080
     networks:
       - vscode
+networks:
+  vscode:
