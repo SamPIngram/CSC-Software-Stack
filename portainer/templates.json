@@ -59,8 +59,8 @@
             "container": "/config"
           },
           {
-            "bind": "/etc/ssl/certs:/etc/ssl/certs",
-            "container": "/etc/ssl/certs:/etc/ssl/certs"
+            "bind": "/etc/ssl/certs",
+            "container": "/etc/ssl/certs"
           }
         ]
       }
