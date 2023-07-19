@@ -24,7 +24,7 @@ services:
         reservations:
           devices:
           - driver: nvidia
-            count: ${NUM_GPU}
+            count: 1
             capabilities: [gpu]
   novnc:
     image: ghcr.io/sampingram/csc-novnc:v0.03
