@@ -16,9 +16,11 @@ RUN \
   git \
   mercurial \
   subversion && \
-  wget --quiet https://repo.anaconda.com/miniconda/Miniconda2-4.5.11-Linux-x86_64.sh -O ~/miniconda.sh
+  wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-Linux-x86_64.sh -O ~/miniconda.sh && \
+  bash ~/miniconda.sh -p /miniconda -b && \
+  rm ~/miniconda.sh
 
- 
-# ENV PATH="./opt/conda/etc/profile.d/conda.sh"
-# ENV PATH="conda activate base"
+ENV PATH="PATH=/miniconda/bin:${PATH}"
 
+RUN /miniconda/bin/conda update -y conda && \
+    /miniconda/bin/conda init
