@@ -21,6 +21,9 @@ RUN \
   rm ~/miniconda.sh
 
 ENV PATH="PATH=/miniconda/bin:${PATH}"
+ENV OPENSSL_CONF=/etc/ssl/openssl.cnf
 
 RUN /miniconda/bin/conda update -y conda && \
-    /miniconda/bin/conda init
+    /miniconda/bin/conda init && \
+    chown -R abc /miniconda && \
+    echo "Options = UnsafeLegacyRenegotiation" >> /etc/ssl/openssl.cnf
