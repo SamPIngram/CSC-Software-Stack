@@ -39,8 +39,3 @@ services:
       - vscode
 networks:
   vscode:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-      - subnet:  172.16.248.1/24
