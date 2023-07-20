@@ -47,7 +47,7 @@
           "url": "https://github.com/SamPIngram/CSC-Software-Stack",
           "stackfile": "applications/python-dev/docker-compose.yml"
         },
-        "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/code-server.png",
+        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/python.png",
         "name": "python-dev",
         "platform": "Linux",
         "restart_policy": "unless-stopped",
@@ -91,7 +91,7 @@
           "url": "https://github.com/SamPIngram/CSC-Software-Stack",
           "stackfile": "applications/conda-dev/docker-compose.yml"
         },
-        "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/code-server.png",
+        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/conda.png",
         "name": "conda-dev",
         "platform": "Linux",
         "restart_policy": "unless-stopped",
