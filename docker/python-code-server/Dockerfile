@@ -19,6 +19,7 @@ RUN \
     python${PY_VERSION}-gdbm \
     python${PY_VERSION}-tk && \
   echo "#!/bin/bash\n/usr/bin/python${PY_VERSION}" > /usr/bin/python && \
-  chmod +x /usr/bin/python
+  chmod +x /usr/bin/python && \
+  echo "Options = UnsafeLegacyRenegotiation" >> /etc/ssl/openssl.cnf
 
 ENV PATH="/config/.local/bin:$PATH"
