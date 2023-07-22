@@ -20,3 +20,4 @@ These docker images make the base for the applications available in the CSC Soft
 - Geant4
 - TOPAS (Check license)
 - Conda? (Permissions issues currently)
+- DICOM server (XNAT? Orthanc?)
