@@ -1,19 +1,20 @@
-FROM debian:wheezy-slim
+FROM ubuntu:jammy
 
-LABEL Description="Orthanc, free DICOM server" Vendor="The Orthanc project"
+RUN \
+  apt-get update --fix-missing && \
+  apt-get install -y \ 
+  orthanc \
+  orthanc-dicomweb \
+  orthanc-gdcm \
+  orthanc-imagej \
+  orthanc-mysql \
+  orthanc-postgresql \
+  orthanc-python \
+  orthanc-webviewer \
+  orthanc-wsi
 
-WORKDIR /root/
-
-ADD ./setup-locales.sh ./setup-locales.sh
-RUN bash ./setup-locales.sh
-
-ADD ./download-orthanc.sh ./download-orthanc.sh
-RUN bash ./download-orthanc.sh
-
-ADD ./create-config.sh ./create-config.sh
-RUN bash ./create-config.sh
-
-RUN rm ./setup-locales.sh ./download-orthanc.sh ./create-config.sh
+COPY ./credentials.json /etc/orthanc/
+COPY ./orthanc.json /etc/orthanc/
 
 VOLUME [ "/var/lib/orthanc/db" ]
 EXPOSE 4242
