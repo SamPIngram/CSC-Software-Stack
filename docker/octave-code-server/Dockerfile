@@ -2,10 +2,13 @@
 
 FROM ghcr.io/sampingram/csc-code-server-base:latest
 
+ARG OCTAVE_VER=7.3.0
+
 RUN \
   echo "**** install additional octave dependancies ****" && \
   apt-get update --fix-missing && \
   apt-get install -y \ 
+  software-properties-common \
   wget \
   bzip2 \
   ca-certificates \
@@ -62,5 +65,18 @@ RUN \
   tar \
   texinfo \
   texlive-latex-extra \
-  zlib1g-dev
-  
+  zlib1g-dev \
+  lzip
+
+RUN \
+  echo "**** build octave ****" && \
+  DEBIAN_FRONTEND=noninteractive apt update -y \
+  && wget https://ftpmirror.gnu.org/octave/octave-${OCTAVE_VER}.tar.lz \
+  && tar -xvf octave-${OCTAVE_VER}.tar.lz \
+  && cd octave-${OCTAVE_VER} \
+  && ./configure --prefix=/usr/local/OCTAVE/${OCTAVE_VER} --enable-64 \
+  && make -j$(nproc) \
+  && make install \
+  && cd .. \
+  && rm -r octave-${OCTAVE_VER}.tar.lz \
+  echo "alias octave=/octave-${OCTAVE_VER}/run-octave" >> /root/.bashrc 
