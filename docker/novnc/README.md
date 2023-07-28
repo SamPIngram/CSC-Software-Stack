@@ -39,7 +39,7 @@ Some notable features:
 version: '2'
 services:
   ide:
-    image: linuxserver/code-server:latest
+    image: ghcr.io/sampingram/csc-code-server-base:latest
     environment:
       - DISPLAY=novnc:0.0
     depends_on:
@@ -49,7 +49,7 @@ services:
     networks:
       - x11
   novnc:  
-    image: psharkey/novnc:latest
+    image: ghcr.io/sampingram/csc-novnc:latest
     environment:
       # Adjust to your screen size
       - DISPLAY_WIDTH=1920
