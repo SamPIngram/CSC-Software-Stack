@@ -39,6 +39,22 @@ jobs:
           - dockerfile: ./docker/conda-code-server/Dockerfile
             context: ./docker/conda-code-server/
             image: ghcr.io/sampingram/csc-conda-code-server
+          - dockerfile: ./docker/octave-code-server/Dockerfile
+            context: ./docker/octave-code-server/
+            image: ghcr.io/sampingram/csc-octave-code-server-4.2.2
+            buildargs: OCTAVE_VER=4.2.2
+          - dockerfile: ./docker/octave-code-server/Dockerfile
+            context: ./docker/octave-code-server/
+            image: ghcr.io/sampingram/csc-octave-code-server-6.4.0
+            buildargs: OCTAVE_VER=6.4.0
+          - dockerfile: ./docker/octave-code-server/Dockerfile
+            context: ./docker/octave-code-server/
+            image: ghcr.io/sampingram/csc-octave-code-server-7.3.0
+            buildargs: OCTAVE_VER=7.3.0
+          - dockerfile: ./docker/octave-code-server/Dockerfile
+            context: ./docker/octave-code-server/
+            image: ghcr.io/sampingram/csc-octave-code-server-8.2.0
+            buildargs: OCTAVE_VER=8.2.0
     permissions:
       contents: read
       packages: write
