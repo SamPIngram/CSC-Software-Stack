@@ -1,5 +1,7 @@
 FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntujammy
 
+# based on webtop
+
 # set version label
 ARG BUILD_DATE
 ARG VERSION
@@ -9,7 +11,7 @@ LABEL maintainer="thelamer"
 ARG DEBIAN_FRONTEND="noninteractive"
 
 # prevent Ubuntu's firefox stub from being installed
-COPY /root/etc/apt/preferences.d/firefox-no-snap /etc/apt/preferences.d/firefox-no-snap
+#COPY /root/etc/apt/preferences.d/firefox-no-snap /etc/apt/preferences.d/firefox-no-snap
 
 RUN \
   echo "**** install packages ****" && \
@@ -48,7 +50,7 @@ RUN \
     /tmp/*
 
 # add local files
-COPY /root /
+#COPY /root /
 
 # ports and volumes
 EXPOSE 3000
