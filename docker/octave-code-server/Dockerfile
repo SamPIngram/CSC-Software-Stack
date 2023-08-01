@@ -79,7 +79,7 @@ RUN \
   && make install \
   && cd .. \
   && rm -r octave-${OCTAVE_VER}.tar.lz \
-  echo "alias octave=/octave-${OCTAVE_VER}/run-octave" >> /root/.bashrc 
+  && echo "alias octave=/octave-${OCTAVE_VER}/run-octave" >> /root/.bashrc 
 
 # install VS Code extensions
 RUN code-server --install-extension redhat.vscode-yaml \
