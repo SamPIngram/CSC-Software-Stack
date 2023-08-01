@@ -8,7 +8,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-and-push-image:
+  build-and-push-base-images:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -20,6 +20,44 @@ jobs:
           - dockerfile: ./docker/code-server-base/Dockerfile
             context: ./docker/code-server-base/
             image: ghcr.io/sampingram/csc-code-server-base
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ matrix.image }}
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GH_TOKEN }}
+
+      - name: Build and push Docker images for CSC-Software-Stack
+        uses: docker/build-push-action@v4
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          build-args: ${{ matrix.buildargs }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+  build-and-push-app-images:
+    needs: build-and-push-base-images
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
           - dockerfile: ./docker/python-code-server/Dockerfile
             context: ./docker/python-code-server/
             image: ghcr.io/sampingram/csc-python-code-server-3.11
