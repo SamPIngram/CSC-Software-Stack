@@ -20,6 +20,9 @@ jobs:
           - dockerfile: ./docker/code-server-base/Dockerfile
             context: ./docker/code-server-base/
             image: ghcr.io/sampingram/csc-code-server-base
+          - dockerfile: ./docker/orthanc-base/Dockerfile
+            context: ./docker/orthanc-base/
+            image: ghcr.io/sampingram/csc-orthanc-base
     permissions:
       contents: read
       packages: write
