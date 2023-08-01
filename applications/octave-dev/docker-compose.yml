@@ -1,0 +1,41 @@
+---
+version: "2.1"
+services:
+  octave-dev:
+    image: ghcr.io/sampingram/csc-octave-code-server-${OCTAVE_VER}:latest
+    container_name: octave-dev-${INSTANCE_ID}
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=${PASSWORD}
+      - SUDO_PASSWORD=${SUDO_PASSWORD}
+      - DEFAULT_WORKSPACE=/config/workspace
+      - DISPLAY=novnc:0.0
+    depends_on:
+      - novnc
+    networks:
+      - vscode
+    ports:
+      - :8443
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
+  novnc:
+    image: ghcr.io/sampingram/csc-novnc:v0.03
+    environment:
+      # Adjust to your screen size
+      - DISPLAY_WIDTH=1920
+      - DISPLAY_HEIGHT=1080
+      - RUN_XTERM=no
+    ports:
+      - :8080
+    networks:
+      - vscode
+networks:
+  vscode:
