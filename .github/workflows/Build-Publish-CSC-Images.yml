@@ -36,6 +36,10 @@ jobs:
             context: ./docker/python-code-server/
             image: ghcr.io/sampingram/csc-python-code-server-3.7
             buildargs: PY_VERSION=3.7
+          - dockerfile: ./docker/python-code-server/Dockerfile
+            context: ./docker/python-code-server/
+            image: ghcr.io/sampingram/csc-python-code-server-3.7
+            buildargs: PY_VERSION=2.7
           - dockerfile: ./docker/conda-code-server/Dockerfile
             context: ./docker/conda-code-server/
             image: ghcr.io/sampingram/csc-conda-code-server

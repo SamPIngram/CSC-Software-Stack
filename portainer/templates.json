@@ -31,6 +31,10 @@
               {
                 "text": "Python 3.7",
                 "value": "3.7"
+              },
+              {
+                "text": "Python 2.7 (not recommended)",
+                "value": "2.7"
               }
             ]
           },
