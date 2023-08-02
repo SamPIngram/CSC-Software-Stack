@@ -82,5 +82,5 @@ RUN \
   && echo "alias octave=/octave-${OCTAVE_VER}/run-octave" >> /root/.bashrc 
 
 # install VS Code extensions
-RUN code-server --install-extension redhat.vscode-yaml \
-                --install-extension ms-python.python
+# RUN code-server --install-extension redhat.vscode-yaml \
+#                --install-extension ms-python.python
