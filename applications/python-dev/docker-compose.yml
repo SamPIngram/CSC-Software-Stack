@@ -2,6 +2,7 @@
 version: "2.1"
 services:
   python-dev:
+    network_mode: bridge
     image: ghcr.io/sampingram/csc-python-code-server-${PYTHON_VERSION}:latest
     container_name: python-dev-${INSTANCE_ID}
     environment:
@@ -27,6 +28,7 @@ services:
             count: 1
             capabilities: [gpu]
   novnc:
+    network_mode: bridge
     image: ghcr.io/sampingram/csc-novnc:v0.03
     environment:
       # Adjust to your screen size
