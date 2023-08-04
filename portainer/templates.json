@@ -188,6 +188,14 @@
           {
             "name": "INSTANCE_ID",
             "label": "INSTANCE_ID"
+          },
+          {
+            "name": "DICOM_PORT",
+            "label": "DICOM_PORT"
+          },
+          {
+            "name": "APP_PORT",
+            "label": "APP_PORT"
           }
         ],
         "repository": {
