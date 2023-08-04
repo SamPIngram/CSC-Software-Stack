@@ -3,7 +3,7 @@ services:
   orthanc:
     image: ghcr.io/sampingram/csc-orthanc-base:latest
     ports:
-      - ${EXPOSED_DICOM_PORT}:4242
-      - :8042
+      - ${DICOM_PORT}:4242
+      - ${APP_PORT}:8042
     environment:
       - ORTHANC_NAME=Orthanc_Node-${INSTANCE_ID}
