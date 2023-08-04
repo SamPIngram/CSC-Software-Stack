@@ -1,6 +1,7 @@
 version: '3.1'  # Secrets are only available since this version of Docker Compose
 services:
   orthanc:
+    network_mode: bridge
     image: ghcr.io/sampingram/csc-orthanc-base:latest
     ports:
       - ${DICOM_PORT}:4242
