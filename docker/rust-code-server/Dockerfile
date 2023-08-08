@@ -11,6 +11,5 @@ RUN \
 
 RUN \
   echo "**** install rust ****" && \
-  apt-get update && \
   curl https://sh.rustup.rs -sSf | bash -s -- -y && \
-  echo 'source /root/.cargo/env' >> /config/.bashrc
+  echo 'source "$HOME/.cargo/env"' >> /config/.bashrc
