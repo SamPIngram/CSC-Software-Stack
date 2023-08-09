@@ -7,9 +7,12 @@ RUN \
   apt-get install -y \
   software-properties-common \
   build-essential \
-  curl
+  curl && \
+  chmod 777 /config
+
+
 
 RUN \
   echo "**** install rust ****" && \
-  curl https://sh.rustup.rs -sSf | bash -s -- -y && \
-  echo 'source "$HOME/.cargo/env"' >> /config/.bashrc
+  apt update && \
+  apt install cargo -y
