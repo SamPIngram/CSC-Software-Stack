@@ -8,9 +8,3 @@ RUN \
   software-properties-common \
   build-essential \
   curl
-
-
-RUN \
-  echo "**** install rust ****" && \
-  apt update && \
-  apt install cargo -y
