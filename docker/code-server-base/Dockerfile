@@ -3,7 +3,7 @@ FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
 # set version label
 ARG BUILD_DATE
 ARG VERSION
-ARG CODE_RELEASE=4.14.1
+ARG CODE_RELEASE=4.16.1
 # latest version can be seen here: https://api.github.com/repos/coder/code-server/releases/latest
 
 # environment settings

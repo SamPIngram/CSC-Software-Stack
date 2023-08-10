@@ -11,6 +11,6 @@ RUN \
 
 
 RUN \
-  echo "**** install Node.JS ****" && \
+  echo "**** install R ****" && \
   apt update && \
   apt install r-base r-base-dev -y
