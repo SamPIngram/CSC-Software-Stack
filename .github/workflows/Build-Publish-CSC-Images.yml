@@ -96,6 +96,24 @@ jobs:
             context: ./docker/octave-code-server/
             image: ghcr.io/sampingram/csc-octave-code-server-8.2.0
             buildargs: OCTAVE_VER=8.2.0
+          - dockerfile: ./docker/c-code-server/Dockerfile
+            context: ./docker/c-code-server/
+            image: ghcr.io/sampingram/csc-c-code-server
+          - dockerfile: ./docker/c++-code-server/Dockerfile
+            context: ./docker/c++-code-server/
+            image: ghcr.io/sampingram/csc-c++-code-server
+          - dockerfile: ./docker/go-code-server/Dockerfile
+            context: ./docker/go-code-server/
+            image: ghcr.io/sampingram/csc-go-code-server
+          - dockerfile: ./docker/rust-code-server/Dockerfile
+            context: ./docker/rust-code-server/
+            image: ghcr.io/sampingram/csc-rust-code-server
+          - dockerfile: ./docker/r-code-server/Dockerfile
+            context: ./docker/r-code-server/
+            image: ghcr.io/sampingram/csc-r-code-server
+          - dockerfile: ./docker/nodejs-code-server/Dockerfile
+            context: ./docker/nodejs-code-server/
+            image: ghcr.io/sampingram/csc-nodejs-code-server
     permissions:
       contents: read
       packages: write
