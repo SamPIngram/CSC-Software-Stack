@@ -9,21 +9,13 @@ These docker images make the base for the applications available in the CSC Soft
 
 ### Images TODO:
 - Mega Dev (Most languages)
-- Rust
-- Go
-- Js
-- Octave
-- C++
-- C
 - R-studio (if open license)
 - GATE
 - Geant4
 - TOPAS (Check license)
-- Conda? (Permissions issues currently)
-- DICOM server (XNAT? Orthanc?)
 
 # TODOs
-- figure out permissions can I install as abc in code-server
+- figure out permissions can I install as abc in code-server (benefit for future modifications)
 - Check that vnc servers don't conflict when in same network
 - Consolidate where I'm up to. Maybe cut down initial offering.
 - Once certificates in place see if "UnsafeLegacyRenegotiation" can be removed

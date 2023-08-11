@@ -17,8 +17,6 @@ services:
       - /CSC_DATA/codeservers/octave-dev-${INSTANCE_ID}/config:/config
     depends_on:
       - novnc
-    networks:
-      - vscode
     ports:
       - :8443
     restart: unless-stopped
@@ -39,7 +37,3 @@ services:
       - RUN_XTERM=no
     ports:
       - :8080
-    networks:
-      - vscode
-networks:
-  vscode:
