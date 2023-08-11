@@ -13,6 +13,8 @@ services:
       - SUDO_PASSWORD=${SUDO_PASSWORD}
       - DEFAULT_WORKSPACE=/config/workspace
       - DISPLAY=novnc:0.0
+    volumes:
+      - /CSC_DATA/codeservers/python-dev-${INSTANCE_ID}/config:/config
     depends_on:
       - novnc
     networks:
