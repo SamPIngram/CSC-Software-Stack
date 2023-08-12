@@ -99,9 +99,9 @@ jobs:
           - dockerfile: ./docker/c-code-server/Dockerfile
             context: ./docker/c-code-server/
             image: ghcr.io/sampingram/csc-c-code-server
-          - dockerfile: ./docker/c++-code-server/Dockerfile
-            context: ./docker/c++-code-server/
-            image: ghcr.io/sampingram/csc-c++-code-server
+          - dockerfile: ./docker/cplusplus-code-server/Dockerfile
+            context: ./docker/cplusplus-code-server/
+            image: ghcr.io/sampingram/csc-cplusplus-code-server
           - dockerfile: ./docker/go-code-server/Dockerfile
             context: ./docker/go-code-server/
             image: ghcr.io/sampingram/csc-go-code-server
