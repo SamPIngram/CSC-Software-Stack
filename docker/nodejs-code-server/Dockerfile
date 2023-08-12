@@ -12,6 +12,5 @@ RUN \
 
 RUN \
   echo "**** install Node.JS ****" && \
-  apt update && \
-  apt install Node.js -y && \
-  apt install npm -y
+  curl -fsSL https://deb.nodesource.com/setup_18.x |  bash - && \
+  apt install nodejs -y
