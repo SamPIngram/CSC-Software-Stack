@@ -114,6 +114,9 @@ jobs:
           - dockerfile: ./docker/nodejs-code-server/Dockerfile
             context: ./docker/nodejs-code-server/
             image: ghcr.io/sampingram/csc-nodejs-code-server
+          - dockerfile: ./docker/esapi-code-server/Dockerfile
+            context: ./docker/esapi-code-server/
+            image: ghcr.io/sampingram/csc-esapi-code-server
     permissions:
       contents: read
       packages: write
