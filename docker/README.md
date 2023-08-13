@@ -4,6 +4,7 @@ These docker images make the base for the applications available in the CSC Soft
 
 ### Building/Running on M1 Macs:
 docker buildx build --platform=linux/amd64 -t <image-name> .
+
 docker run --platform=linux/amd64 -it <image-name>
 
 ### Functionality to Add:
