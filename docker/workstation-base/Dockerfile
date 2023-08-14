@@ -3,6 +3,7 @@ FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntujammy
 # set version label
 ARG BUILD_DATE
 ARG VERSION
+ARG DEBIAN_FRONTEND="noninteractive"
 
 # prevent Ubuntu's firefox stub from being installed
 COPY /root/etc/apt/preferences.d/firefox-no-snap /etc/apt/preferences.d/firefox-no-snap
@@ -37,9 +38,46 @@ RUN \
     /var/tmp/* \
     /tmp/*
 
+# CONDA
+RUN \
+  echo "**** install additional development packages ****" && \
+  apt-get update --fix-missing && \
+  apt-get install -y \ 
+  wget \
+  bzip2 \
+  ca-certificates \
+  libglib2.0-0 \ 
+  libxext6 \
+  libsm6 \
+  libxrender1 \
+  git \
+  mercurial \
+  subversion && \
+  wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-Linux-x86_64.sh -O ~/miniconda.sh && \
+  bash ~/miniconda.sh -p /miniconda -b && \
+  rm ~/miniconda.sh
+
+ENV PATH="PATH=/miniconda/bin:${PATH}"
+ENV OPENSSL_CONF=/etc/ssl/openssl.cnf
+
+RUN DEBIAN_FRONTEND=noninteractive \
+    /miniconda/bin/conda update -y conda && \
+    /miniconda/bin/conda init && \
+    chown -R abc /miniconda && \
+    echo "Options = UnsafeLegacyRenegotiation" >> /etc/ssl/openssl.cnf
+
+# VS CODE
+RUN \
+  wget --quiet https://go.microsoft.com/fwlink/?LinkID=760868 -O ~/vscode.deb && \
+  apt install ~/vscode.deb -y && \
+  rm ~/vscode.deb 
+
 # add local files
 COPY /root /
+COPY ./setup.sh /config/Desktop
 
 # ports and volumes
 EXPOSE 3000
 VOLUME /config
+
+# ENTRYPOINT ["/setup.sh"]
