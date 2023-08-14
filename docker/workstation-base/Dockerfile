@@ -80,4 +80,15 @@ COPY ./setup.sh /config/Desktop
 EXPOSE 3000
 VOLUME /config
 
-# ENTRYPOINT ["/setup.sh"]
+RUN \
+  export DISPLAY=:0 && \
+  export $(dbus-launch) && \
+  cp /usr/share/applications/mate-terminal.desktop /config/Desktop && \
+  cp /usr/share/applications/firefox.desktop /config/Desktop && \
+  cp /usr/share/applications/code.desktop /config/Desktop && \ 
+  add-apt-repository universe && \
+  apt update && \
+  apt install dconf-cli dconf-editor -y && \
+  dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-dark'" && \
+  apt install caja-open-terminal -y 
+
