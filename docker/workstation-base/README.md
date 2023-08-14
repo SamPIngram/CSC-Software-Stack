@@ -98,6 +98,7 @@ docker run -d \
   -e TZ=Etc/UTC \
   -e SUBFOLDER=/ `#optional` \
   -e TITLE=csc_workstation `#optional` \
+  -e PASSWORD=password \
   -p 3000:3000 \
   -v /path/to/data:/config \
   -v /var/run/docker.sock:/var/run/docker.sock `#optional` \

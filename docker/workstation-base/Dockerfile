@@ -75,6 +75,7 @@ RUN \
 # add local files
 COPY /root /
 COPY ./setup.sh /config/Desktop
+COPY 84136.jpg /
 
 # ports and volumes
 EXPOSE 3000
@@ -90,5 +91,7 @@ RUN \
   apt update && \
   apt install dconf-cli dconf-editor -y && \
   dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-dark'" && \
+  dconf write /org/mate/desktop/background/picture-filename "'/84136.jpg'" && \
   apt install caja-open-terminal -y 
 
+# dconf commands are not holding
