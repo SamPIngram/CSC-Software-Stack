@@ -3,3 +3,4 @@
 - change name from config as working dir?
 - start writing a userguide?
 - wallpaper
+- Jetbrains pycharm
