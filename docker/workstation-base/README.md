@@ -75,6 +75,7 @@ services:
       - TZ=Etc/UTC
       - SUBFOLDER=/ #optional
       - TITLE=Webtop #optional
+      - PASSWORD=password
     volumes:
       - /path/to/data:/config
       - /var/run/docker.sock:/var/run/docker.sock #optional
@@ -98,12 +99,11 @@ docker run -d \
   -e TZ=Etc/UTC \
   -e SUBFOLDER=/ `#optional` \
   -e TITLE=csc_workstation `#optional` \
-  -e PASSWORD=password \
   -p 3000:3000 \
   -v /path/to/data:/config \
   -v /var/run/docker.sock:/var/run/docker.sock `#optional` \
   --device /dev/dri:/dev/dri `#optional` \
-  --shm-size="4gb" `#optional` \
+  --shm-size="1gb" `#optional` \
   --restart unless-stopped \
   ghcr.io/sampingram/csc-workstation-base:latest
 

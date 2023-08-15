@@ -50,6 +50,7 @@ RUN \
   libxext6 \
   libsm6 \
   libxrender1 \
+  nano \
   git \
   mercurial \
   subversion && \
@@ -60,12 +61,6 @@ RUN \
 ENV PATH="PATH=/miniconda/bin:${PATH}"
 ENV OPENSSL_CONF=/etc/ssl/openssl.cnf
 
-RUN DEBIAN_FRONTEND=noninteractive \
-    /miniconda/bin/conda update -y conda && \
-    /miniconda/bin/conda init && \
-    chown -R abc /miniconda && \
-    echo "Options = UnsafeLegacyRenegotiation" >> /etc/ssl/openssl.cnf
-
 # VS CODE
 RUN \
   wget --quiet https://go.microsoft.com/fwlink/?LinkID=760868 -O ~/vscode.deb && \
@@ -74,24 +69,14 @@ RUN \
 
 # add local files
 COPY /root /
-COPY ./setup.sh /config/Desktop
-COPY 84136.jpg /
+COPY /setup /
 
 # ports and volumes
 EXPOSE 3000
 VOLUME /config
 
 RUN \
-  export DISPLAY=:0 && \
-  export $(dbus-launch) && \
-  cp /usr/share/applications/mate-terminal.desktop /config/Desktop && \
-  cp /usr/share/applications/firefox.desktop /config/Desktop && \
-  cp /usr/share/applications/code.desktop /config/Desktop && \ 
   add-apt-repository universe && \
   apt update && \
   apt install dconf-cli dconf-editor -y && \
-  dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-dark'" && \
-  dconf write /org/mate/desktop/background/picture-filename "'/84136.jpg'" && \
   apt install caja-open-terminal -y 
-
-# dconf commands are not holding
