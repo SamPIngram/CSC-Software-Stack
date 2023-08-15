@@ -1,0 +1,5 @@
+- conda list of libaries
+- add esapi c# coding support
+- change name from config as working dir?
+- start writing a userguide?
+- wallpaper
