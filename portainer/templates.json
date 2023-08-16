@@ -242,7 +242,7 @@
         "name": "orthanc-osimis",
         "platform": "Linux",
         "restart_policy": "unless-stopped",
-        "title": "Orthanc Node",
+        "title": "Orthanc Osimis",
         "type": 3,
         "volumes": [
           {
