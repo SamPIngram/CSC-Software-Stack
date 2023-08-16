@@ -64,3 +64,8 @@ services:
 
       # StoneViewer configurations
       ORTHANC__STONE_WEB_VIEWER__DATE_FORMAT: "DD/MM/YYYY"
+
+volumes:
+  orthanc-main-storage:
+    external: true
+    name: orthanc-main-storage
