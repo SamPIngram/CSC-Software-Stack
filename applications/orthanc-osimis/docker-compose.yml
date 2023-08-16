@@ -8,8 +8,8 @@ services:
     ports: ["${DICOM_PORT}:4242", "${APP_PORT}:8042"]
     volumes: ["orthanc-main-storage:/var/lib/orthanc/db:Z"]
     environment:
-      ORTHANC__NAME: "TOPOL Orthanc"
-      ORTHANC__DICOM_AET: "TOPOL"
+      ORTHANC__NAME: ${NAME}
+      ORTHANC__DICOM_AET: ${AE_TITLE}
       ORTHANC__DICOM_MODALITIES: |
         {
         }
