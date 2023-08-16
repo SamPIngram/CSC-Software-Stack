@@ -251,41 +251,5 @@
           }
         ]
       }
-      {
-        "categories": [
-          "Orthanc", "DICOM", "Data Transfer"
-        ],
-        "description": "Lightweight DICOM server node for medical imaging",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "name": "DICOM_PORT",
-            "label": "DICOM_PORT"
-          },
-          {
-            "name": "APP_PORT",
-            "label": "APP_PORT"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/orthanc-osimis/docker-compose.yml"
-        },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/orthanc.png",
-        "name": "orthanc-osimis",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "Orthanc Osimis",
-        "type": 3,
-        "volumes": [
-          {
-            "bind": "/etc/ssl/certs",
-            "container": "/etc/ssl/certs"
-          }
-        ]
-      }
     ]
   }
