@@ -1,0 +1,69 @@
+version: "3.3"
+services:
+  orthanc:
+    network_mode: bridge
+    container_name: orthanc-${INSTANCE_ID}
+    image: osimis/orthanc:23.7.1-full-stable
+    restart: unless-stopped
+    ports: ["${DICOM_PORT}:4242", "${APP_PORT}:8042"]
+    volumes: ["orthanc-main-storage:/var/lib/orthanc/db:Z"]
+    environment:
+      ORTHANC__NAME: "TOPOL Orthanc"
+      ORTHANC__DICOM_AET: "TOPOL"
+      ORTHANC__DICOM_MODALITIES: |
+        {
+        }
+      ORTHANC__REGISTERED_USERS: |
+        {"orthanc": "orthanc"}
+      VERBOSE_STARTUP: "true"
+
+      # you must enable the StoneViewer and the DicomWeb plugins
+      STONE_WEB_VIEWER_PLUGIN_ENABLED: "true"
+      DICOM_WEB_PLUGIN_ENABLED: "true"
+
+      ORTHANC__DICOM_WEB__SERIES_METADATA: "Full"
+      ORTHANC__DICOM_WEB__STUDIES_METADATA: "Full"
+      ORTHANC__DICOM_WEB__METADATA_WORKER_THREADS_COUNT : "4"
+
+      # if you want to work in "MainDicomTags" mode for the metadata, you should define
+      # these extra main dicomtags
+      ORTHANC__EXTRA_MAIN_DICOM_TAGS: |
+        {
+          "Instance" : [
+              "Rows",
+              "Columns",
+              "ImageType",
+              "SOPClassUID",
+              "ContentDate",
+              "ContentTime",
+              "FrameOfReferenceUID",
+              "PixelSpacing",
+              "SpecificCharacterSet",
+              "BitsAllocated",
+              "BitsStored",
+
+              "RescaleSlope",
+              "RescaleIntercept",
+              "SliceThickness",
+              "WindowCenter",
+              "WindowWidth",
+              "PhotometricInterpretation",
+              "PixelRepresentation"
+          ],
+          "Series" : [
+              "TimezoneOffsetFromUTC",
+              "PerformedProcedureStepStartDate",
+              "PerformedProcedureStepStartTime",
+              "RequestAttributesSequence"
+          ],
+          "Study": [
+              "TimezoneOffsetFromUTC"
+          ],
+          "Patient": []
+        }
+
+      # StoneViewer configurations
+      ORTHANC__STONE_WEB_VIEWER__DATE_FORMAT: "DD/MM/YYYY"
+
+volumes:
+  orthanc-main-storage:
