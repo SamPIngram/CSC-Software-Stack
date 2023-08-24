@@ -3,5 +3,6 @@
     "python.autoComplete.extraPaths": [],
     "python.defaultInterpreterPath": "/config/.conda/envs/developer/bin/python",
     "python.condaPath": "/miniconda/condabin/conda",
-    "python.analysis.extraPaths": []
+    "python.analysis.extraPaths": [],
+    "http.proxyStrictSSL": false
 }
