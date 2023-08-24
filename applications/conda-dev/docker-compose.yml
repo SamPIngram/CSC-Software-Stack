@@ -12,7 +12,6 @@ services:
       - PASSWORD=${PASSWORD}
       - SUDO_PASSWORD=${SUDO_PASSWORD}
       - DEFAULT_WORKSPACE=/config/workspace
-      - DISPLAY=novnc:0.0
     volumes:
       - instance-storage:/config
     ports:
