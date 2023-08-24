@@ -11,7 +11,7 @@ services:
       - TZ=Etc/UTC
       - SUBFOLDER=/ #optional
       - TITLE=csc_workstation #optional
-      - PASSWORD=password
+      - PASSWORD=${PASSWORD}
     volumes:
       - instance-storage:/config
       - /var/run/docker.sock:/var/run/docker.sock #optional
