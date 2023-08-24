@@ -14,7 +14,8 @@ services:
       - PASSWORD=${PASSWORD}
     volumes:
       - instance-storage:/config
-      - /var/run/docker.sock:/var/run/docker.sock #optional
+      - /var/run/docker.sock:/var/run/docker.sock 
+      - /etc/ssl/certs:/etc/ssl/certs:ro
     ports:
       - 3000:3000
     devices:
