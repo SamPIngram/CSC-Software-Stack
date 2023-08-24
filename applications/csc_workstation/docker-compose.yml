@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   workstation:
-    image: hcr.io/sampingram/csc-workstation-base:latest
+    image: ghcr.io/sampingram/csc-workstation-base:latest
     container_name: csc_workstation-${INSTANCE_ID}
     security_opt:
       - seccomp:unconfined #optional
