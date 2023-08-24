@@ -26,3 +26,6 @@ ENV OPENSSL_CONF=/etc/ssl/openssl.cnf
 RUN /miniconda/bin/conda update -y conda && \
     /miniconda/bin/conda init && \
     chown -R abc /miniconda
+    
+COPY install_extensions.sh /etc/cont-init.d/
+COPY settings.json /config/data/Machine/

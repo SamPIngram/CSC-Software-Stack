@@ -26,4 +26,6 @@ RUN \
 RUN echo "[global]\ntrusted-host = pypi.python.org pypi.org files.pythonhosted.org" >> /etc/pip.conf && \
     echo "alias python=python${PY_VERSION}" >> /etc/bash.bashrc
 
+COPY settings.json /config/data/Machine/
+COPY install_extensions.sh /etc/cont-init.d/
 ENV PATH="/config/.local/bin:$PATH"

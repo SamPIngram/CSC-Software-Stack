@@ -64,9 +64,9 @@ Here are some example snippets to help you get started creating a container.
 ---
 version: "2.1"
 services:
-  webtop:
-    image: ghcr.io/sampingram/csc-webtop:latest
-    container_name: webtop
+  workstation:
+    image: hcr.io/sampingram/csc-workstation-base:latest
+    container_name: workstation
     security_opt:
       - seccomp:unconfined #optional
     environment:
@@ -74,14 +74,13 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - SUBFOLDER=/ #optional
-      - TITLE=Webtop #optional
+      - TITLE=csc_workstation #optional
       - PASSWORD=password
     volumes:
       - /path/to/data:/config
       - /var/run/docker.sock:/var/run/docker.sock #optional
     ports:
       - 3000:3000
-      - 3001:3001
     devices:
       - /dev/dri:/dev/dri #optional
     shm_size: "1gb" #optional

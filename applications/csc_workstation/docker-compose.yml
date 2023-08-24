@@ -1,0 +1,35 @@
+version: "2.1"
+services:
+  workstation:
+    image: hcr.io/sampingram/csc-workstation-base:latest
+    container_name: csc_workstation-${INSTANCE_ID}
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SUBFOLDER=/ #optional
+      - TITLE=csc_workstation #optional
+      - PASSWORD=password
+    volumes:
+      - instance-storage:/config
+      - /var/run/docker.sock:/var/run/docker.sock #optional
+    ports:
+      - 3000:3000
+    devices:
+      - /dev/dri:/dev/dri #optional
+    shm_size: "1gb" #optional
+    restart: unless-stopped
+    deploy:
+        resources:
+          reservations:
+            devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+volumes:
+  instance-storage:
+    external: false
+    name: csc_workstation-${INSTANCE_ID}

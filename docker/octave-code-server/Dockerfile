@@ -84,3 +84,4 @@ RUN \
 # install VS Code extensions
 # RUN code-server --install-extension redhat.vscode-yaml \
 #                --install-extension ms-python.python
+COPY settings.json /config/data/Machine/

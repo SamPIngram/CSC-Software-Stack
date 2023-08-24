@@ -23,6 +23,9 @@ jobs:
           - dockerfile: ./docker/orthanc-base/Dockerfile
             context: ./docker/orthanc-base/
             image: ghcr.io/sampingram/csc-orthanc-base
+          - dockerfile: ./docker/workstation-base/Dockerfile
+            context: ./docker/workstation-base/
+            image: ghcr.io/sampingram/csc-workstation-base
     permissions:
       contents: read
       packages: write
