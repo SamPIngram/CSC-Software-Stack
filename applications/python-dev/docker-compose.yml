@@ -14,9 +14,7 @@ services:
       - DEFAULT_WORKSPACE=/config/workspace
       - DISPLAY=novnc:0.0
     volumes:
-      - /CSC_DATA/codeservers/python-dev-${INSTANCE_ID}/config:/config
-    depends_on:
-      - novnc
+      - instance-storage:/config
     ports:
       - :8443
     restart: unless-stopped
@@ -27,13 +25,8 @@ services:
           - driver: nvidia
             count: 1
             capabilities: [gpu]
-  novnc:
-    network_mode: bridge
-    image: ghcr.io/sampingram/csc-novnc:v0.03
-    environment:
-      # Adjust to your screen size
-      - DISPLAY_WIDTH=1920
-      - DISPLAY_HEIGHT=1080
-      - RUN_XTERM=no
-    ports:
-      - :8080
+
+volumes:
+  instance-storage:
+    external: false
+    name: python-dev-${INSTANCE_ID}

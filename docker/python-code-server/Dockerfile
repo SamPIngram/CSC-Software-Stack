@@ -1,6 +1,6 @@
 FROM ghcr.io/sampingram/csc-code-server-base:latest
 
-ARG PY_VERSION=3.6
+ARG PY_VERSION=3.11
 
 RUN \
   echo "**** install additional development packages ****" && \
@@ -20,11 +20,10 @@ RUN \
     python${PY_VERSION}-lib2to3 \
     python${PY_VERSION}-gdbm \
     python${PY_VERSION}-tk; \
-  fi && \
-  chmod +x /usr/bin/python
-RUN ehco "[global]
-          trusted-host = pypi.python.org
-                        pypi.org
-                        files.pythonhosted.org" >> /etc/pip.conf && \
+  fi
+
+# Set so python uses correct version and trusted python hosts are inplace.
+RUN echo "[global]\ntrusted-host = pypi.python.org pypi.org files.pythonhosted.org" >> /etc/pip.conf && \
     echo "alias python=python${PY_VERSION}" >> /etc/bash.bashrc
+
 ENV PATH="/config/.local/bin:$PATH"
