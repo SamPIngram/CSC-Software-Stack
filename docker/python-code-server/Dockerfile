@@ -21,8 +21,10 @@ RUN \
     python${PY_VERSION}-gdbm \
     python${PY_VERSION}-tk; \
   fi && \
-  echo "#!/bin/bash\n/usr/bin/python${PY_VERSION}" > /usr/bin/python && \
-  chmod +x /usr/bin/python && \
-  echo "Options = UnsafeLegacyRenegotiation" >> /etc/ssl/openssl.cnf
-
+  chmod +x /usr/bin/python
+RUN ehco "[global]
+          trusted-host = pypi.python.org
+                        pypi.org
+                        files.pythonhosted.org" >> /etc/pip.conf && \
+    echo "alias python=python${PY_VERSION}" >> /etc/bash.bashrc
 ENV PATH="/config/.local/bin:$PATH"
