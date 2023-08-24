@@ -70,7 +70,7 @@ RUN \
 # add local files
 COPY /root /
 COPY /setup /
-COPY /setup/setup.sh /etc/cont-init.d/
+COPY /setup/setup/setup.sh /etc/cont-init.d/
 
 # ports and volumes
 EXPOSE 3000

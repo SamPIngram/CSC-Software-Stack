@@ -90,6 +90,96 @@
       },
       {
         "categories": [
+          "Development", "R"
+        ],
+        "description": "R Dev is VS Code running on a remote server, accessible through the browser.",
+        "env": [
+          {
+            "name": "INSTANCE_ID",
+            "label": "INSTANCE_ID"
+          },
+          {
+            "label": "PASSWORD",
+            "name": "PASSWORD"
+          },
+          {
+            "label": "SUDO_PASSWORD",
+            "name": "SUDO_PASSWORD"
+          }
+        ],
+        "repository": {
+          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+          "stackfile": "applications/r-dev/docker-compose.yml"
+        },
+        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/r.png",
+        "name": "R-dev",
+        "platform": "Linux",
+        "restart_policy": "unless-stopped",
+        "title": "R Dev",
+        "type": 3
+      },
+      {
+        "categories": [
+          "Development", "Go"
+        ],
+        "description": "Go Dev is VS Code running on a remote server, accessible through the browser.",
+        "env": [
+          {
+            "name": "INSTANCE_ID",
+            "label": "INSTANCE_ID"
+          },
+          {
+            "label": "PASSWORD",
+            "name": "PASSWORD"
+          },
+          {
+            "label": "SUDO_PASSWORD",
+            "name": "SUDO_PASSWORD"
+          }
+        ],
+        "repository": {
+          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+          "stackfile": "applications/go-dev/docker-compose.yml"
+        },
+        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/go.png",
+        "name": "Go-dev",
+        "platform": "Linux",
+        "restart_policy": "unless-stopped",
+        "title": "Go Dev",
+        "type": 3
+      },
+      {
+        "categories": [
+          "Development", "Rust"
+        ],
+        "description": "Rust Dev is VS Code running on a remote server, accessible through the browser.",
+        "env": [
+          {
+            "name": "INSTANCE_ID",
+            "label": "INSTANCE_ID"
+          },
+          {
+            "label": "PASSWORD",
+            "name": "PASSWORD"
+          },
+          {
+            "label": "SUDO_PASSWORD",
+            "name": "SUDO_PASSWORD"
+          }
+        ],
+        "repository": {
+          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+          "stackfile": "applications/rust-dev/docker-compose.yml"
+        },
+        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/rust.png",
+        "name": "Rust-dev",
+        "platform": "Linux",
+        "restart_policy": "unless-stopped",
+        "title": "Rust Dev",
+        "type": 3
+      },
+      {
+        "categories": [
           "Octave", "Development"
         ],
         "description": "Octave Dev is VS Code running on a remote server, accessible through the browser.",

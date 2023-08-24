@@ -1,0 +1,32 @@
+---
+version: "2.1"
+services:
+  r-dev:
+    network_mode: bridge
+    image: ghcr.io/sampingram/csc-r-code-server:latest
+    container_name: r-dev-${INSTANCE_ID}
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=${PASSWORD}
+      - SUDO_PASSWORD=${SUDO_PASSWORD}
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - instance-storage:/config
+      - /etc/ssl/certs:/etc/ssl/certs:ro
+    ports:
+      - :8443
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
+
+volumes:
+  instance-storage:
+    external: false
+    name: conda-dev-${INSTANCE_ID}
