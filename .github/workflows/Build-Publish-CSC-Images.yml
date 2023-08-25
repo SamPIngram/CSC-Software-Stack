@@ -52,6 +52,8 @@ jobs:
         with:
           context: ${{ matrix.context }}
           file: ${{ matrix.dockerfile }}
+          sbom: true
+          provenance: false
           build-args: ${{ matrix.buildargs }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
