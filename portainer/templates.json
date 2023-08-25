@@ -344,7 +344,7 @@
           "url": "https://github.com/SamPIngram/CSC-Software-Stack",
           "stackfile": "applications/totalsegmentator/docker-compose.yml"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/orthanc.png",
+        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/totalsegmentator.png",
         "name": "TotalSegmentator",
         "platform": "Linux",
         "restart_policy": "unless-stopped",
