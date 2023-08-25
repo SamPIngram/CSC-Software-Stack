@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# General
+sudo chown -R abc ~/
+
 # Themes
 dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-dark'"
 dconf write /org/mate/desktop/background/picture-filename "'/setup/wallpaper.jpg'"
