@@ -26,7 +26,7 @@ echo "conda activate developer" >> ~/.bashrc
 
 # VS Code
 touch ~/.config/Code/User/settings.json
-cp /setup/setup/settings.json ~/.config/Code/User/settings.json
+cp /setup/settings.json ~/.config/Code/User/settings.json
 code --install-extension ms-python.python
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-toolsai.jupyter
