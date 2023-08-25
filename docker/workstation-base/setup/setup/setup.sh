@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Themes
-sudo dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-dark'"
-sudo dconf write /org/mate/desktop/background/picture-filename "'/setup/wallpaper.jpg'"
+dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-dark'"
+dconf write /org/mate/desktop/background/picture-filename "'/setup/wallpaper.jpg'"
 
 # Desktop Icons
 sudo cp /usr/share/applications/mate-terminal.desktop /config/Desktop/
