@@ -1,6 +1,7 @@
 version: "2.1"
 services:
   workstation:
+    network_mode: bridge
     image: ghcr.io/sampingram/csc-workstation-base:latest
     container_name: csc_workstation-${INSTANCE_ID}
     security_opt:
