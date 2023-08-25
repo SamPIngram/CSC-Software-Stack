@@ -58,6 +58,10 @@ RUN \
   bash ~/miniconda.sh -p /miniconda -b && \
   rm ~/miniconda.sh
 
+RUN /miniconda/bin/conda update -y conda && \
+    /miniconda/bin/conda init && \
+    chown -R abc /miniconda
+
 ENV PATH="PATH=/miniconda/bin:${PATH}"
 ENV OPENSSL_CONF=/etc/ssl/openssl.cnf
 

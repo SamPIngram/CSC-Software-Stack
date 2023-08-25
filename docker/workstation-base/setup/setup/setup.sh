@@ -5,11 +5,12 @@ dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-dark'"
 dconf write /org/mate/desktop/background/picture-filename "'/setup/wallpaper.jpg'"
 
 # Desktop Icons
-cp /usr/share/applications/mate-terminal.desktop /config/Desktop/
-cp /usr/share/applications/firefox.desktop /config/Desktop/
-cp /usr/share/applications/code.desktop /config/Desktop/
+sudo cp /usr/share/applications/mate-terminal.desktop /config/Desktop/
+sudo cp /usr/share/applications/firefox.desktop /config/Desktop/
+sudo cp /usr/share/applications/code.desktop /config/Desktop/
 
 # Conda
+/miniconda/bin/conda config --set ssl_verify False
 /miniconda/bin/conda update -y conda
 /miniconda/bin/conda init
 source ~/.bashrc

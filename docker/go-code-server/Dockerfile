@@ -13,3 +13,6 @@ RUN \
   echo "**** install go ****" && \
   apt-get update && \
   apt install golang-go -y
+
+COPY settings.json /config/data/Machine/
+COPY install_extensions.sh /etc/cont-init.d/
