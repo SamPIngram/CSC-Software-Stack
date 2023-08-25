@@ -10,6 +10,7 @@ sudo cp /usr/share/applications/firefox.desktop /config/Desktop/
 sudo cp /usr/share/applications/code.desktop /config/Desktop/
 
 # Conda
+chown -R abc /miniconda
 /miniconda/bin/conda config --set ssl_verify False
 /miniconda/bin/conda update -y conda
 /miniconda/bin/conda init
