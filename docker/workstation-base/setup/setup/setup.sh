@@ -22,6 +22,7 @@ conda install ipykernel --update-deps --force-reinstall -y
 echo "conda activate developer" >> ~/.bashrc
 
 # VS Code
+touch ~/.config/Code/User/settings.json
 cp /setup/settings.json ~/.config/Code/User/settings.json
 code --install-extension ms-python.python
 code --install-extension ms-azuretools.vscode-docker
