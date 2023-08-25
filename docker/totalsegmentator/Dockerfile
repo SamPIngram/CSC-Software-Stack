@@ -20,3 +20,5 @@ RUN python /totalsegmentator/totalsegmentator/download_pretrained_weights.py
 COPY streamlit /streamlit
 
 RUN pip install streamlit pydicom
+
+ENTRYPOINT ["cd" "/streamlit" "&&" "streamlit", "run", "TotalSegmentator.py"]

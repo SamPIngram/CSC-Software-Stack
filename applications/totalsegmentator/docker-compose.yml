@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  totalsegmentator:
+    network_mode: bridge
+    image: ghcr.io/sampingram/csc-totalsegmentator:latest
+    ports:
+      - :8501 
+    volumes:
+        - instance-storage:/
+        - /etc/ssl/certs:/etc/ssl/certs:ro
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
+
+
+volumes:
+  instance-storage:
+    external: false
+    name: totalsegmentator

@@ -120,6 +120,9 @@ jobs:
           - dockerfile: ./docker/esapi-code-server/Dockerfile
             context: ./docker/esapi-code-server/
             image: ghcr.io/sampingram/csc-esapi-code-server
+          - dockerfile: ./docker/totalsegmentator/Dockerfile
+            context: ./docker/totalsegmentator/
+            image: ghcr.io/sampingram/csc-totalsegmentator
     permissions:
       contents: read
       packages: write

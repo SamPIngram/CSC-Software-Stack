@@ -334,6 +334,22 @@
         "restart_policy": "unless-stopped",
         "title": "Orthanc Osimis",
         "type": 3
+      },
+      {
+        "categories": [
+          "Autocontouring", "DICOM", "Data Transfer"
+        ],
+        "description": "App built ontop of totalsegmentator framework",
+        "repository": {
+          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+          "stackfile": "applications/totalsegmentator/docker-compose.yml"
+        },
+        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/orthanc.png",
+        "name": "TotalSegmentator",
+        "platform": "Linux",
+        "restart_policy": "unless-stopped",
+        "title": "TotalSegmentator App",
+        "type": 3
       }
     ]
   }
