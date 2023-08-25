@@ -1,5 +1,5 @@
 #!/bin/bash
-
+conda config --set ssl_verify False
 install-extension ms-python.python
 install-extension ms-azuretools.vscode-docker
 install-extension ms-toolsai.jupyter
