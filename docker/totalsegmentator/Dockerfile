@@ -1,3 +1,5 @@
+# TODO move to leaner base image
+
 FROM nvcr.io/nvidia/pytorch:23.07-py3
 
 RUN apt-get update && \
