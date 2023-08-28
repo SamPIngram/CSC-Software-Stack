@@ -1,6 +1,6 @@
 # Docker Images
 
-These docker images make the base for the applications available in the CSC Software Stack.
+These docker images make the base for the applications available in CSC Software Stack.
 
 ### Building/Running on M1 Macs:
 docker buildx build --platform=linux/amd64 -t <image-name> .

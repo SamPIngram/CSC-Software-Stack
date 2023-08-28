@@ -2,7 +2,7 @@
 Clinical Scientific Computing (CSC) Software Stack
 
 ## Warning
-This code base is still in early development. The design of the stack is till in flux. Therefore it is only recommended for testing purposes and development currently. 
+This code base is still in early development. The design of the stack is still in flux. Therefore it is only recommended for testing purposes and development currently. 
 
 ## Motivation
 There are a substantial number of open source tools and applications that are widely being used in production and development. Many of these tools permissively used in closed source medical software solutions. This stack looks to standardise a range of these open-source tools and applications so that they can be more easily adopted by the Clinical Scientific Computing community. 
