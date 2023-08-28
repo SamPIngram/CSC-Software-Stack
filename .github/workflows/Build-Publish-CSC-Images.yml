@@ -52,7 +52,7 @@ jobs:
         with:
           context: ${{ matrix.context }}
           file: ${{ matrix.dockerfile }}
-          sbom: true
+          sbom: false
           provenance: false
           build-args: ${{ matrix.buildargs }}
           push: true
@@ -151,7 +151,7 @@ jobs:
         with:
           context: ${{ matrix.context }}
           file: ${{ matrix.dockerfile }}
-          sbom: true
+          sbom: false
           provenance: false
           build-args: ${{ matrix.buildargs }}
           push: true
