@@ -3,6 +3,12 @@
 # General
 sudo chown -R abc ~/
 
+# SSL
+sudo touch /etc/pip.conf 
+echo "[global]" | sudo tee -a /etc/pip.conf 
+echo "trusted-host = pypi.python.org pypi.org files.pythonhosted.org" | sudo tee -a /etc/pip.conf 
+echo "Options = UnsafeLegacyServerConnect" | sudo tee -a /etc/ssl/openssl.cnf
+
 # Themes
 dconf write /org/mate/desktop/interface/gtk-theme "'Yaru-dark'"
 dconf write /org/mate/desktop/background/picture-filename "'/setup/wallpaper.jpg'"
@@ -35,6 +41,7 @@ code --install-extension wayou.vscode-todo-highlight
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension grapecity.gc-excelviewer
 code --install-extension oderwat.indent-rainbow
+wget -qO- https://raw.githubusercontent.com/harry-cpp/code-nautilus/master/install.sh | bash
 
 echo -e "\n\n*****************************************"
 read -p "Setup Script Completed. Press enter to exit."

@@ -3,7 +3,7 @@ import os
 from totalsegmentator.python_api import totalsegmentator
 import datetime
 
-st.set_page_config(page_title="Run TotalSegmentator", page_icon="🪄")
+st.set_page_config(page_title="Run TotalSegmentator", page_icon="🔮")
 
 st.markdown("# Run TotalSegmentator")
 st.sidebar.header("Run TotalSegmentator")
