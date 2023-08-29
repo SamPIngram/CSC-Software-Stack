@@ -4,7 +4,7 @@ services:
     network_mode: bridge
     image: ghcr.io/sampingram/csc-totalsegmentator:latest
     ports:
-      - :8501 
+      - ${PORT}:8501 
     volumes:
         - instance-storage:/
         - /etc/ssl/certs:/etc/ssl/certs:ro

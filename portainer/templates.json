@@ -350,6 +350,28 @@
         "restart_policy": "unless-stopped",
         "title": "TotalSegmentator App",
         "type": 3
+      },
+      {
+        "categories": [
+          "Utility", "WebApp"
+        ],
+        "description": "filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files. It allows the creation of multiple users and each user can have its own directory. It can be used as a standalone app.",
+        "env": [
+          {
+            "name": "PORT",
+            "label": "PORT"
+          }
+        ],
+        "repository": {
+          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+          "stackfile": "applications/filebrowser/docker-compose.yml"
+        },
+        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/filebrowser.png",
+        "name": "filebrowser",
+        "platform": "Linux",
+        "restart_policy": "unless-stopped",
+        "title": "Filebrowser",
+        "type": 3
       }
     ]
   }

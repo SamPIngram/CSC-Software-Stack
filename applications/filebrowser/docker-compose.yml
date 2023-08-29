@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  filebrowser:
+    image: ghcr.io/sampingram/csc-filebrowser:latest
+    user: 1000:1000
+    ports:
+      - ${PORT}:80
+    volumes:
+      - /var/lib/docker/volumes:/data
+      - instance-storage:/config
+    environment:
+      - FB_BASEURL=/filebrowser
+    restart: always
+
+volumes:
+  instance-storage:
+    external: false
+    name: filebrowser
