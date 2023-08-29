@@ -4,12 +4,31 @@ import pydicom
 import zipfile
 import os
 from datetime import datetime
+import glob
 
 st.set_page_config(page_title="Upload TotalSegmentator", page_icon="⏫")
 
 st.markdown("# Upload Zipped Image DICOM")
 st.sidebar.header("Upload Image DICOM")
 
+def clean_files(path):
+    files = glob.glob(path)
+    true_ct_files = 0
+    removed_files_not_dicom = 0
+    removed_files_not_CT = 0
+    for f in files:
+        try:
+            ds = pydicom.dcmread(f)
+            if ds.Modality!='CT':
+                os.remove(f)
+                removed_files_not_CT += 1
+            else:
+                ct_files += 1
+        except InvalidDicomError:
+            os.remove(f)
+            removed_files_not_dicom += 1
+    return true_ct_files, removed_files_not_CT, removed_files_not_dicom
+        
 
 def parse_files():
     if zip_ct is not None:
@@ -22,25 +41,10 @@ def parse_files():
             os.makedirs(st.session_state["input"])
             os.makedirs(st.session_state["output"])
             z.extractall(st.session_state["input"])
-            ct_files = z.namelist()
-            clean_ct_files = []
-            dirty_ct_files = []
-            if ct_files is not None:
-                for ct_file in ct_files:
-                    try:
-                        dcm = pydicom.dcmread(z.open(ct_file))
-                        # TODO add CT type check
-                        clean_ct_files.append(z.open(ct_file))
-                    except InvalidDicomError:
-                        dirty_ct_files.append(z.open(ct_file))
-                st.sidebar.write(
-                    f"Successful uploaded file: {len(clean_ct_files)}/{len(ct_files)}"
-                )
-                st.sidebar.write(
-                    f"Unsuccessful uploaded file: {len(dirty_ct_files)}/{len(ct_files)}"
-                )
-
-                st.session_state["CT"] = clean_ct_files
+            true_ct_files, removed_files_not_CT, removed_files_not_dicom = clean_files(st.session_state["input"])
+            st.sidebar.write(
+                f"Successful checked files:\nfound {true_ct_files} CT files\nremoved {removed_files_not_CT} non-CT files \nremoved {removed_files_not_dicom} non-DICOM files"
+            )
     else:
         st.sidebar.write("Need to upload files first!")
 
