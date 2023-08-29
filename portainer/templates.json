@@ -340,6 +340,12 @@
           "Autocontouring", "DICOM", "Data Transfer"
         ],
         "description": "App built ontop of totalsegmentator framework",
+        "env": [
+          {
+            "name": "PORT",
+            "label": "PORT"
+          }
+        ],
         "repository": {
           "url": "https://github.com/SamPIngram/CSC-Software-Stack",
           "stackfile": "applications/totalsegmentator/docker-compose.yml"
