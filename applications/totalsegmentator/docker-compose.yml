@@ -6,7 +6,7 @@ services:
     ports:
       - ${PORT}:8501 
     volumes:
-        - instance-storage:/
+        - instance-storage:/streamlit/tmp
         - /etc/ssl/certs:/etc/ssl/certs:ro
     restart: unless-stopped
     deploy:
