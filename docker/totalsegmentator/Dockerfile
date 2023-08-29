@@ -17,4 +17,4 @@ COPY streamlit /streamlit
 RUN pip install streamlit pydicom scikit-rt
 
 WORKDIR "/streamlit"
-ENTRYPOINT ["streamlit", "run", "TotalSegmentator.py"]
+ENTRYPOINT ["streamlit", "run", "TotalSegmentator.py", "--server.maxUploadSize", "500"]
