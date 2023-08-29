@@ -12,7 +12,7 @@ st.markdown("# Upload Zipped Image DICOM")
 st.sidebar.header("Upload Image DICOM")
 
 def clean_files(path):
-    files = glob.glob(path)
+    files = glob.glob(path + '/*')
     true_ct_files = 0
     removed_files_not_dicom = 0
     removed_files_not_CT = 0
@@ -23,7 +23,7 @@ def clean_files(path):
                 os.remove(f)
                 removed_files_not_CT += 1
             else:
-                ct_files += 1
+                true_ct_files += 1
         except InvalidDicomError:
             os.remove(f)
             removed_files_not_dicom += 1
@@ -43,7 +43,16 @@ def parse_files():
             z.extractall(st.session_state["input"])
             true_ct_files, removed_files_not_CT, removed_files_not_dicom = clean_files(st.session_state["input"])
             st.sidebar.write(
-                f"Successful checked files:\nfound {true_ct_files} CT files\nremoved {removed_files_not_CT} non-CT files \nremoved {removed_files_not_dicom} non-DICOM files"
+                f"Successful checked files:"
+            )
+            st.sidebar.write(
+                f"Found {true_ct_files} CT files"
+            )
+            st.sidebar.write(
+                f"Removed {removed_files_not_CT} non-CT files"
+            )
+            st.sidebar.write(
+                f"Removed {removed_files_not_dicom} non-DICOM files"
             )
     else:
         st.sidebar.write("Need to upload files first!")
