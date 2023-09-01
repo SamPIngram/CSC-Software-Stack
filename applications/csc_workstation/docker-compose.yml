@@ -18,7 +18,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock 
       - /etc/ssl/certs:/etc/ssl/certs:ro
     ports:
-      - :3000
+      - ${HTTP_PORT}:3000
+      - ${HTTPS_PORT}:3001
     devices:
       - /dev/dri:/dev/dri #optional
     shm_size: "1gb" #optional
