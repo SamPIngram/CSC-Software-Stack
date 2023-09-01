@@ -24,7 +24,7 @@ sudo chown -R abc /miniconda
 /miniconda/bin/conda update -y conda
 /miniconda/bin/conda init
 source ~/.bashrc
-conda create -n developer -y
+conda create --prefix ~/.conda/envs/developer -y
 conda activate developer
 conda install python -y
 conda install ipykernel --update-deps --force-reinstall -y
