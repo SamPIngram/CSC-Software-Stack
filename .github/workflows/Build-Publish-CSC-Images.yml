@@ -158,6 +158,10 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      - name: Docker SBOM
+        run: docker sbom --format spdx-json --output ${{ matrix.context }}sbom.json ${{ matrix.image }}:${{ steps.meta.outputs.tags }}
+
+
   # docker-scout:
   #   needs: build-and-push-app-images
   #   runs-on: ubuntu-latest
