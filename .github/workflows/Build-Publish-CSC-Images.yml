@@ -167,7 +167,8 @@ jobs:
       - name: Generate image SBOM's
         uses: anchore/sbom-action@v0
         with:
-          image: ${{ matrix.image }}:{{ steps.meta.outputs.tags }}
+          image: ${{ matrix.image }}:${{ steps.meta.outputs.tags }}
+          artifact-name: sbom-${{ matrix.image }}.spdx.json
 
   # docker-scout:
   #   needs: build-and-push-app-images
