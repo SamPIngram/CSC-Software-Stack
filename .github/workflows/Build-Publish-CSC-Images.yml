@@ -17,15 +17,19 @@ jobs:
           - dockerfile: ./docker/novnc/Dockerfile
             context: ./docker/novnc/
             image: ghcr.io/sampingram/csc-novnc
+            name: csc-novnc
           - dockerfile: ./docker/code-server-base/Dockerfile
             context: ./docker/code-server-base/
             image: ghcr.io/sampingram/csc-code-server-base
+            name: csc-code-server-base
           - dockerfile: ./docker/orthanc-base/Dockerfile
             context: ./docker/orthanc-base/
             image: ghcr.io/sampingram/csc-orthanc-base
+            name: csc-orthanc-base
           - dockerfile: ./docker/workstation-base/Dockerfile
             context: ./docker/workstation-base/
             image: ghcr.io/sampingram/csc-workstation-base
+            name: csc-workstation-base
     permissions:
       contents: read
       packages: write
@@ -63,7 +67,7 @@ jobs:
         uses: anchore/sbom-action@v0
         with:
           image: ${{ matrix.image }}:${{ steps.meta.outputs.version }}
-          artifact-name: sbom-${{ matrix.image }}.spdx.json
+          artifact-name: sbom-${{ matrix.name }}.spdx.json
 
   build-and-push-app-images:
     needs: build-and-push-base-images
@@ -76,61 +80,78 @@ jobs:
             context: ./docker/python-code-server/
             image: ghcr.io/sampingram/csc-python-code-server-3.11
             buildargs: PY_VERSION=3.11
+            name: csc-python-code-server-3.11
           - dockerfile: ./docker/python-code-server/Dockerfile
             context: ./docker/python-code-server/
             image: ghcr.io/sampingram/csc-python-code-server-3.9
             buildargs: PY_VERSION=3.9
+            name: csc-python-code-server-3.9
           - dockerfile: ./docker/python-code-server/Dockerfile
             context: ./docker/python-code-server/
             image: ghcr.io/sampingram/csc-python-code-server-3.8
             buildargs: PY_VERSION=3.8
+            name: csc-python-code-server-3.8
           - dockerfile: ./docker/python-code-server/Dockerfile
             context: ./docker/python-code-server/
             image: ghcr.io/sampingram/csc-python-code-server-3.7
             buildargs: PY_VERSION=3.7
+            name: csc-python-code-server-3.7
           - dockerfile: ./docker/python-code-server/Dockerfile
             context: ./docker/python-code-server/
             image: ghcr.io/sampingram/csc-python-code-server-3.7
             buildargs: PY_VERSION=2.7
+            name: csc-python-code-server-2.7
           - dockerfile: ./docker/conda-code-server/Dockerfile
             context: ./docker/conda-code-server/
             image: ghcr.io/sampingram/csc-conda-code-server
+            name: csc-conda-code-server
           - dockerfile: ./docker/octave-code-server/Dockerfile
             context: ./docker/octave-code-server/
             image: ghcr.io/sampingram/csc-octave-code-server-6.4.0
             buildargs: OCTAVE_VER=6.4.0
+            name: csc-octave-code-server-6.4.0
           - dockerfile: ./docker/octave-code-server/Dockerfile
             context: ./docker/octave-code-server/
             image: ghcr.io/sampingram/csc-octave-code-server-7.3.0
             buildargs: OCTAVE_VER=7.3.0
+            name: csc-octave-code-server-7.3.0
           - dockerfile: ./docker/octave-code-server/Dockerfile
             context: ./docker/octave-code-server/
             image: ghcr.io/sampingram/csc-octave-code-server-8.2.0
             buildargs: OCTAVE_VER=8.2.0
+            name: csc-octave-code-server-8.2.0
           - dockerfile: ./docker/c-code-server/Dockerfile
             context: ./docker/c-code-server/
             image: ghcr.io/sampingram/csc-c-code-server
+            name: csc-c-code-server
           - dockerfile: ./docker/cplusplus-code-server/Dockerfile
             context: ./docker/cplusplus-code-server/
             image: ghcr.io/sampingram/csc-cplusplus-code-server
+            name: csc-cplusplus-code-server
           - dockerfile: ./docker/go-code-server/Dockerfile
             context: ./docker/go-code-server/
             image: ghcr.io/sampingram/csc-go-code-server
+            name: csc-go-code-server
           - dockerfile: ./docker/rust-code-server/Dockerfile
             context: ./docker/rust-code-server/
             image: ghcr.io/sampingram/csc-rust-code-server
+            name: csc-rust-code-server
           - dockerfile: ./docker/r-code-server/Dockerfile
             context: ./docker/r-code-server/
             image: ghcr.io/sampingram/csc-r-code-server
+            name: csc-r-code-server
           - dockerfile: ./docker/nodejs-code-server/Dockerfile
             context: ./docker/nodejs-code-server/
             image: ghcr.io/sampingram/csc-nodejs-code-server
+            name: csc-nodejs-code-server
           - dockerfile: ./docker/esapi-code-server/Dockerfile
             context: ./docker/esapi-code-server/
             image: ghcr.io/sampingram/csc-esapi-code-server
+            name: csc-esapi-code-server
           - dockerfile: ./docker/totalsegmentator/Dockerfile
             context: ./docker/totalsegmentator/
             image: ghcr.io/sampingram/csc-totalsegmentator
+            name: csc-totalsegmentator
     permissions:
       contents: read
       packages: write
@@ -168,7 +189,7 @@ jobs:
         uses: anchore/sbom-action@v0
         with:
           image: ${{ matrix.image }}:${{ steps.meta.outputs.version }}
-          artifact-name: sbom-${{ matrix.image }}.spdx.json
+          artifact-name: sbom-${{ matrix.name }}.spdx.json
 
   # docker-scout:
   #   needs: build-and-push-app-images
