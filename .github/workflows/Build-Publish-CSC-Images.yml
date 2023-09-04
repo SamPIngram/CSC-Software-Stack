@@ -59,6 +59,11 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      - name: Generate image SBOM's
+        uses: anchore/sbom-action@v0
+        with:
+          image: ${{ matrix.image }}:{{ steps.meta.outputs.tags }}
+
   build-and-push-app-images:
     needs: build-and-push-base-images
     runs-on: ubuntu-latest
@@ -158,9 +163,10 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Docker SBOM
-        run: docker sbom --format spdx-json --output ${{ matrix.context }}sbom_${{ steps.meta.outputs.tags }}.json ${{ matrix.image }}:${{ steps.meta.outputs.tags }}
-
+      - name: Generate image SBOM's
+        uses: anchore/sbom-action@v0
+        with:
+          image: ${{ matrix.image }}:{{ steps.meta.outputs.tags }}
 
   # docker-scout:
   #   needs: build-and-push-app-images
