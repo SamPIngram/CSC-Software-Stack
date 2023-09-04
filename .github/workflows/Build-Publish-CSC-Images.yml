@@ -62,7 +62,7 @@ jobs:
       - name: Generate image SBOM's
         uses: anchore/sbom-action@v0
         with:
-          image: ${{ matrix.image }}:${GITHUB_REF#refs/*/}
+          image: ${{ matrix.image }}:${{ GITHUB_REF#refs/*/ }}
           artifact-name: sbom-${{ matrix.image }}.spdx.json
 
   build-and-push-app-images:
@@ -167,7 +167,7 @@ jobs:
       - name: Generate image SBOM's
         uses: anchore/sbom-action@v0
         with:
-          image: ${{ matrix.image }}:${GITHUB_REF#refs/*/}
+          image: ${{ matrix.image }}:${{ GITHUB_REF#refs/*/ }}
           artifact-name: sbom-${{ matrix.image }}.spdx.json
 
   # docker-scout:
