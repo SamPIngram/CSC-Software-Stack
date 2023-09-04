@@ -68,6 +68,7 @@ jobs:
         with:
           image: ${{ matrix.image }}:${{ steps.meta.outputs.version }}
           artifact-name: sbom-${{ matrix.name }}.spdx.json
+          github-token: ${{ secrets.GH_TOKEN }}
 
   build-and-push-app-images:
     needs: build-and-push-base-images
