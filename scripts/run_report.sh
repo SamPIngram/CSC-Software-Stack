@@ -4,9 +4,9 @@
 
 # Parse cmd arguments
 
-CONTEXT=""
+CONTEXT="./docker/code-server-base/"
 SRC_BRANCH="master"
-DEPLOY_BRANCH="gh-pages"
+DEPLOY_BRANCH="reports"
 
 USAGE_MSG="usage: deploy [-h|--help] [-c|--context CONTEXT] [-s|--src SRC_BRANCH] [-d|--deploy DEPLOY_BRANCH] [--verbose] [--no-push]"
 
