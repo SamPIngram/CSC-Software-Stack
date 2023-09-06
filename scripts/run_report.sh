@@ -44,3 +44,11 @@ while [[ $# > 0 ]]; do
     esac
     shift
 done
+
+# grab src branch
+# do I need to check if docker is installed?
+# cd to context directory
+# run build 
+# make sure docker scout is isntalled
+# docker scout cves --output ./reports/
+# docker scout sbom --list --output ./reports/
