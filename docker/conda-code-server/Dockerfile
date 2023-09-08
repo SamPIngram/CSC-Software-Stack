@@ -29,3 +29,5 @@ RUN /miniconda/bin/conda update -y conda && \
     
 #COPY install_extensions.sh /etc/cont-init.d/
 # COPY ./setup/setup/settings.json /config/data/Machine/
+
+COPY ./setup /
