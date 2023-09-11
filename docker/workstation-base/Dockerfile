@@ -74,9 +74,9 @@ RUN \
 # add local files
 COPY /root /
 COPY /setup /setup
-COPY /setup/setup.sh /etc/cont-init.d/
+#COPY /setup/setup.sh /etc/cont-init.d/
 
-# # ports and volumes
+# ports and volumes
 # EXPOSE 3000
 # VOLUME /config
 
