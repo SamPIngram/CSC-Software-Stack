@@ -65,7 +65,7 @@ Here are some example snippets to help you get started creating a container.
 version: "2.1"
 services:
   workstation:
-    image: hcr.io/sampingram/csc-workstation-base:latest
+    image: ghcr.io/sampingram/csc-workstation-base:latest
     container_name: workstation
     security_opt:
       - seccomp:unconfined #optional
