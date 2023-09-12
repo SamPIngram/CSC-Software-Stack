@@ -10,14 +10,14 @@ fi
 /miniconda/bin/conda update -y conda
 /miniconda/bin/conda init
 source ~/.bashrc
-
+conda install -c conda-forge mamba
 gpu=$(lspci | grep -i '.* vga .* nvidia .*')
 if [[ $gpu == *' nvidia '* ]]; then
   echo Nvidia GPU found. Installing GPU standard env.
-  conda env create -f /setup/conda/standard_gpu_env.yaml --force
+  mamba env create -f /setup/conda/standard_gpu_env.yaml --force
 else
   echo No Nvidia GPU found. Installing standard env.
-  conda env create -f /setup/conda/standard_env.yaml --force
+  mamba env create -f /setup/conda/standard_env.yaml --force
 fi
 
 conda activate developer
