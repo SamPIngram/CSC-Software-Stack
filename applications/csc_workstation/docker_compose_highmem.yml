@@ -1,4 +1,4 @@
-version: "2.1"
+version: "3.8"
 services:
   workstation:
     network_mode: bridge
@@ -11,11 +11,11 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - SUBFOLDER=/ #optional
-      - TITLE=csc_workstation #optional
+      - TITLE=${TITLE} #optional
       - PASSWORD=${PASSWORD}
     volumes:
       - instance-storage:/config
-      - /var/run/docker.sock:/var/run/docker.sock 
+      - /var/run/docker.sock:/var/run/docker.sock
       - /etc/ssl/certs:/etc/ssl/certs:ro
     ports:
       - ${HTTP_PORT}:3000
@@ -25,12 +25,10 @@ services:
     shm_size: "1gb" #optional
     restart: unless-stopped
     deploy:
-        resources:
-          reservations:
-            devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+      resources:
+        limits:
+          cpus: "4"
+          memory: "64g"
 
 volumes:
   instance-storage:

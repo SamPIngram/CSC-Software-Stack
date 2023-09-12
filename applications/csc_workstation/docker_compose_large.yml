@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  workstation:
+    network_mode: bridge
+    image: ghcr.io/sampingram/csc-workstation-base:latest
+    container_name: csc_workstation-${INSTANCE_ID}
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SUBFOLDER=/ #optional
+      - TITLE=${TITLE} #optional
+      - PASSWORD=${PASSWORD}
+    volumes:
+      - instance-storage:/config
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/ssl/certs:/etc/ssl/certs:ro
+    ports:
+      - ${HTTP_PORT}:3000
+      - ${HTTPS_PORT}:3001
+    devices:
+      - /dev/dri:/dev/dri #optional
+    shm_size: "1gb" #optional
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "24"
+          memory: "64g"
+
+volumes:
+  instance-storage:
+    external: false
+    name: csc_workstation-${INSTANCE_ID}

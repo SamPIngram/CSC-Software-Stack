@@ -1,383 +1,535 @@
 {
-    "version": "2",
-    "templates": [
-      {
-        "categories": [
-          "Python", "Development"
-        ],
-        "description": "Python Dev is VS Code running on a remote server, accessible through the browser.",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "name": "PYTHON_VERSION",
-            "label": "PYTHON_VERSION",
-            "select": [
-              {
-                "text": "Python 3.11",
-                "value": "3.11",
-                "default": true
-              },
-              {
-                "text": "Python 3.9",
-                "value": "3.9"
-              },
-              {
-                "text": "Python 3.8",
-                "value": "3.8"
-              },
-              {
-                "text": "Python 3.7",
-                "value": "3.7"
-              },
-              {
-                "text": "Python 2.7 (not recommended)",
-                "value": "2.7"
-              }
-            ]
-          },
-          {
-            "label": "PASSWORD",
-            "name": "PASSWORD"
-          },
-          {
-            "label": "SUDO_PASSWORD",
-            "name": "SUDO_PASSWORD"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/python-dev/docker-compose.yml"
+  "version": "2",
+  "templates": [
+    {
+      "categories": [
+        "Python",
+        "Development"
+      ],
+      "description": "Python Dev is VS Code running on a remote server, accessible through the browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/python.png",
-        "name": "python-dev",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "Python Dev",
-        "type": 3
+        {
+          "name": "PYTHON_VERSION",
+          "label": "PYTHON_VERSION",
+          "select": [
+            {
+              "text": "Python 3.11",
+              "value": "3.11",
+              "default": true
+            },
+            {
+              "text": "Python 3.9",
+              "value": "3.9"
+            },
+            {
+              "text": "Python 3.8",
+              "value": "3.8"
+            },
+            {
+              "text": "Python 3.7",
+              "value": "3.7"
+            },
+            {
+              "text": "Python 2.7 (not recommended)",
+              "value": "2.7"
+            }
+          ]
+        },
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "SUDO_PASSWORD",
+          "name": "SUDO_PASSWORD"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/python-dev/docker-compose.yml"
       },
-      {
-        "categories": [
-          "Python", "Development", "Conda"
-        ],
-        "description": "Conda Dev is VS Code running on a remote server, accessible through the browser.",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "label": "PASSWORD",
-            "name": "PASSWORD"
-          },
-          {
-            "label": "SUDO_PASSWORD",
-            "name": "SUDO_PASSWORD"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/conda-dev/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/python.png",
+      "name": "python-dev",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Python Dev",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Python",
+        "Development",
+        "Conda"
+      ],
+      "description": "Conda Dev is VS Code running on a remote server, accessible through the browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/conda.png",
-        "name": "conda-dev",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "Conda Dev",
-        "type": 3
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "SUDO_PASSWORD",
+          "name": "SUDO_PASSWORD"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/conda-dev/docker-compose.yml"
       },
-      {
-        "categories": [
-          "Development", "R"
-        ],
-        "description": "R Dev is VS Code running on a remote server, accessible through the browser.",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "label": "PASSWORD",
-            "name": "PASSWORD"
-          },
-          {
-            "label": "SUDO_PASSWORD",
-            "name": "SUDO_PASSWORD"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/r-dev/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/conda.png",
+      "name": "conda-dev",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Conda Dev",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Development",
+        "R"
+      ],
+      "description": "R Dev is VS Code running on a remote server, accessible through the browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/r.png",
-        "name": "R-dev",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "R Dev",
-        "type": 3
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "SUDO_PASSWORD",
+          "name": "SUDO_PASSWORD"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/r-dev/docker-compose.yml"
       },
-      {
-        "categories": [
-          "Development", "Go"
-        ],
-        "description": "Go Dev is VS Code running on a remote server, accessible through the browser.",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "label": "PASSWORD",
-            "name": "PASSWORD"
-          },
-          {
-            "label": "SUDO_PASSWORD",
-            "name": "SUDO_PASSWORD"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/go-dev/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/r.png",
+      "name": "R-dev",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "R Dev",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Development",
+        "Go"
+      ],
+      "description": "Go Dev is VS Code running on a remote server, accessible through the browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/go.png",
-        "name": "Go-dev",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "Go Dev",
-        "type": 3
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "SUDO_PASSWORD",
+          "name": "SUDO_PASSWORD"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/go-dev/docker-compose.yml"
       },
-      {
-        "categories": [
-          "Development", "Rust"
-        ],
-        "description": "Rust Dev is VS Code running on a remote server, accessible through the browser.",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "label": "PASSWORD",
-            "name": "PASSWORD"
-          },
-          {
-            "label": "SUDO_PASSWORD",
-            "name": "SUDO_PASSWORD"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/rust-dev/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/go.png",
+      "name": "Go-dev",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Go Dev",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Development",
+        "Rust"
+      ],
+      "description": "Rust Dev is VS Code running on a remote server, accessible through the browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/rust.png",
-        "name": "Rust-dev",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "Rust Dev",
-        "type": 3
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "SUDO_PASSWORD",
+          "name": "SUDO_PASSWORD"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/rust-dev/docker-compose.yml"
       },
-      {
-        "categories": [
-          "Octave", "Development"
-        ],
-        "description": "Octave Dev is VS Code running on a remote server, accessible through the browser.",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "name": "OCTAVE_VERSION",
-            "label": "OCTAVE_VERSION",
-            "select": [
-              {
-                "text": "Octave 8.2.0",
-                "value": "8.2.0",
-                "default": true
-              },
-              {
-                "text": "Octave 7.3.0",
-                "value": "7.3.0"
-              },
-              {
-                "text": "Octave 6.4.0",
-                "value": "6.4.0"
-              }
-            ]
-          },
-          {
-            "label": "PASSWORD",
-            "name": "PASSWORD"
-          },
-          {
-            "label": "SUDO_PASSWORD",
-            "name": "SUDO_PASSWORD"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/octave-dev/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/rust.png",
+      "name": "Rust-dev",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Rust Dev",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Octave",
+        "Development"
+      ],
+      "description": "Octave Dev is VS Code running on a remote server, accessible through the browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/octave.png",
-        "name": "octave-dev",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "Octave Dev",
-        "type": 3,
-        "volumes": [
-          {
-            "bind": "/portainer/Files/AppData/Config/Code-Server",
-            "container": "/config"
-          },
-          {
-            "bind": "/portainer/Files/AppData/Config/Code-Server",
-            "container": "/config"
-          },
-          {
-            "bind": "/etc/ssl/certs",
-            "container": "/etc/ssl/certs"
-          }
-        ]
+        {
+          "name": "OCTAVE_VERSION",
+          "label": "OCTAVE_VERSION",
+          "select": [
+            {
+              "text": "Octave 8.2.0",
+              "value": "8.2.0",
+              "default": true
+            },
+            {
+              "text": "Octave 7.3.0",
+              "value": "7.3.0"
+            },
+            {
+              "text": "Octave 6.4.0",
+              "value": "6.4.0"
+            }
+          ]
+        },
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "SUDO_PASSWORD",
+          "name": "SUDO_PASSWORD"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/octave-dev/docker-compose.yml"
       },
-      {
-        "categories": [
-          "Workstation", "Development", "Python", "Conda"
-        ],
-        "description": "CSC Workstation is whole Linux desktop within your browser.",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "label": "PASSWORD",
-            "name": "PASSWORD"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/csc_workstation/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/octave.png",
+      "name": "octave-dev",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Octave Dev",
+      "type": 3,
+      "volumes": [
+        {
+          "bind": "/portainer/Files/AppData/Config/Code-Server",
+          "container": "/config"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/workstation.png",
-        "name": "csc_workstation",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "CSC Workstation",
-        "type": 3
+        {
+          "bind": "/portainer/Files/AppData/Config/Code-Server",
+          "container": "/config"
+        },
+        {
+          "bind": "/etc/ssl/certs",
+          "container": "/etc/ssl/certs"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Workstation",
+        "Development",
+        "Python",
+        "Conda"
+      ],
+      "description": "CSC Workstation is whole Linux desktop within your browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
+        },
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "TITLE",
+          "name": "TITLE"
+        },
+        {
+          "label": "HTTP_PORT",
+          "name": "HTTP_PORT"
+        },
+        {
+          "label": "HTTPS_PORT",
+          "name": "HTTPS_PORT"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/csc_workstation/docker-compose_standard.yml"
       },
-      {
-        "categories": [
-          "Orthanc", "DICOM", "Data Transfer"
-        ],
-        "description": "Lightweight DICOM server node for medical imaging",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "name": "DICOM_PORT",
-            "label": "DICOM_PORT"
-          },
-          {
-            "name": "APP_PORT",
-            "label": "APP_PORT"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/orthanc-node/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/workstation.png",
+      "name": "csc_workstation_standard",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "CSC Workstation (Standard)",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Workstation",
+        "Development",
+        "Python",
+        "Conda"
+      ],
+      "description": "CSC Workstation is whole Linux desktop within your browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/orthanc.png",
-        "name": "orthanc-node",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "Orthanc Node",
-        "type": 3
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "TITLE",
+          "name": "TITLE"
+        },
+        {
+          "label": "HTTP_PORT",
+          "name": "HTTP_PORT"
+        },
+        {
+          "label": "HTTPS_PORT",
+          "name": "HTTPS_PORT"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/csc_workstation/docker-compose_highmem.yml"
       },
-      {
-        "categories": [
-          "Orthanc", "DICOM", "Data Transfer"
-        ],
-        "description": "Lightweight DICOM server node for medical imaging",
-        "env": [
-          {
-            "name": "INSTANCE_ID",
-            "label": "INSTANCE_ID"
-          },
-          {
-            "name": "DICOM_PORT",
-            "label": "DICOM_PORT"
-          },
-          {
-            "name": "APP_PORT",
-            "label": "APP_PORT"
-          },
-          {
-            "name": "AE_TITLE",
-            "label": "AE_TITLE"
-          },
-          {
-            "name": "NODE_NAME",
-            "label": "NODE_NAME"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/orthanc-osimis/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/workstation.png",
+      "name": "csc_workstation_highmem",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "CSC Workstation (High Memory)",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Workstation",
+        "Development",
+        "Python",
+        "Conda"
+      ],
+      "description": "CSC Workstation is whole Linux desktop within your browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/orthanc.png",
-        "name": "orthanc-osimis",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "Orthanc Osimis",
-        "type": 3
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "TITLE",
+          "name": "TITLE"
+        },
+        {
+          "label": "HTTP_PORT",
+          "name": "HTTP_PORT"
+        },
+        {
+          "label": "HTTPS_PORT",
+          "name": "HTTPS_PORT"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/csc_workstation/docker-compose_large.yml"
       },
-      {
-        "categories": [
-          "Autocontouring", "DICOM", "Data Transfer"
-        ],
-        "description": "App built ontop of totalsegmentator framework",
-        "env": [
-          {
-            "name": "PORT",
-            "label": "PORT"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/totalsegmentator/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/workstation.png",
+      "name": "csc_workstation_large",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "CSC Workstation (Large)",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Workstation",
+        "Development",
+        "Python",
+        "Conda"
+      ],
+      "description": "CSC Workstation is whole Linux desktop within your browser.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/totalsegmentator.png",
-        "name": "TotalSegmentator",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "TotalSegmentator App",
-        "type": 3
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "TITLE",
+          "name": "TITLE"
+        },
+        {
+          "label": "HTTP_PORT",
+          "name": "HTTP_PORT"
+        },
+        {
+          "label": "HTTPS_PORT",
+          "name": "HTTPS_PORT"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/csc_workstation/docker-compose_gpu.yml"
       },
-      {
-        "categories": [
-          "Utility", "WebApp"
-        ],
-        "description": "filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files. It allows the creation of multiple users and each user can have its own directory. It can be used as a standalone app.",
-        "env": [
-          {
-            "name": "PORT",
-            "label": "PORT"
-          }
-        ],
-        "repository": {
-          "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-          "stackfile": "applications/filebrowser/docker-compose.yml"
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/workstation.png",
+      "name": "csc_workstation_gpu",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "CSC Workstation (GPU)",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Orthanc",
+        "DICOM",
+        "Data Transfer"
+      ],
+      "description": "Lightweight DICOM server node for medical imaging",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
         },
-        "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/filebrowser.png",
-        "name": "filebrowser",
-        "platform": "Linux",
-        "restart_policy": "unless-stopped",
-        "title": "Filebrowser",
-        "type": 3
-      }
-    ]
-  }
+        {
+          "name": "DICOM_PORT",
+          "label": "DICOM_PORT"
+        },
+        {
+          "name": "APP_PORT",
+          "label": "APP_PORT"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/orthanc-node/docker-compose.yml"
+      },
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/orthanc.png",
+      "name": "orthanc-node",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Orthanc Node",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Orthanc",
+        "DICOM",
+        "Data Transfer"
+      ],
+      "description": "Lightweight DICOM server node for medical imaging",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
+        },
+        {
+          "name": "DICOM_PORT",
+          "label": "DICOM_PORT"
+        },
+        {
+          "name": "APP_PORT",
+          "label": "APP_PORT"
+        },
+        {
+          "name": "AE_TITLE",
+          "label": "AE_TITLE"
+        },
+        {
+          "name": "NODE_NAME",
+          "label": "NODE_NAME"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/orthanc-osimis/docker-compose.yml"
+      },
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/orthanc.png",
+      "name": "orthanc-osimis",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Orthanc Osimis",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Autocontouring",
+        "DICOM",
+        "Data Transfer"
+      ],
+      "description": "App built ontop of totalsegmentator framework",
+      "env": [
+        {
+          "name": "PORT",
+          "label": "PORT"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/totalsegmentator/docker-compose.yml"
+      },
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/totalsegmentator.png",
+      "name": "TotalSegmentator",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "TotalSegmentator App",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Utility",
+        "WebApp"
+      ],
+      "description": "filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files. It allows the creation of multiple users and each user can have its own directory. It can be used as a standalone app.",
+      "env": [
+        {
+          "name": "PORT",
+          "label": "PORT"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/filebrowser/docker-compose.yml"
+      },
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/filebrowser.png",
+      "name": "filebrowser",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Filebrowser",
+      "type": 3
+    }
+  ]
+}
