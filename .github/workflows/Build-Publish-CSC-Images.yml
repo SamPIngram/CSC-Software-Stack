@@ -186,12 +186,12 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Generate image SBOM's
-        uses: anchore/sbom-action@v0
-        with:
-          image: ${{ matrix.image }}:${{ steps.meta.outputs.version }}
-          artifact-name: sbom-${{ matrix.name }}.spdx.json
-          github-token: ${{ secrets.GH_TOKEN }}
+      # - name: Generate image SBOM's
+      #   uses: anchore/sbom-action@v0
+      #   with:
+      #     image: ${{ matrix.image }}:${{ steps.meta.outputs.version }}
+      #     artifact-name: sbom-${{ matrix.name }}.spdx.json
+      #     github-token: ${{ secrets.GH_TOKEN }}
 
   # docker-scout:
   #   needs: build-and-push-app-images
