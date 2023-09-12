@@ -255,7 +255,7 @@
         "Python",
         "Conda"
       ],
-      "description": "CSC Workstation is whole Linux desktop within your browser.",
+      "description": "CSC Workstation is whole Linux desktop within your browser.\nSpecification: 4-cores & 16 GB ram",
       "env": [
         {
           "name": "INSTANCE_ID",
@@ -296,7 +296,7 @@
         "Python",
         "Conda"
       ],
-      "description": "CSC Workstation is whole Linux desktop within your browser.",
+      "description": "CSC Workstation is whole Linux desktop within your browser.\nSpecification: 4-cores & 64 GB ram",
       "env": [
         {
           "name": "INSTANCE_ID",
@@ -337,7 +337,7 @@
         "Python",
         "Conda"
       ],
-      "description": "CSC Workstation is whole Linux desktop within your browser.",
+      "description": "CSC Workstation is whole Linux desktop within your browser.\nSpecification: 24-cores & 64 GB ram",
       "env": [
         {
           "name": "INSTANCE_ID",
@@ -378,7 +378,7 @@
         "Python",
         "Conda"
       ],
-      "description": "CSC Workstation is whole Linux desktop within your browser.",
+      "description": "CSC Workstation is whole Linux desktop within your browser.\nSpecification: 24-cores & 64 GB ram\n*GPU_ID should be index of an available GPU (e.g. 0 or 1)",
       "env": [
         {
           "name": "INSTANCE_ID",
@@ -399,6 +399,10 @@
         {
           "label": "HTTPS_PORT",
           "name": "HTTPS_PORT"
+        },
+        {
+          "label": "GPU_ID",
+          "name": "GPU_ID"
         }
       ],
       "repository": {
