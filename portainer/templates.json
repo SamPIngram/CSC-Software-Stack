@@ -65,7 +65,7 @@
         "Development",
         "Conda"
       ],
-      "description": "Conda Dev is VS Code running on a remote server, accessible through the browser.",
+      "description": "Conda Dev is VS Code running on a remote server, accessible through the browser.\nSpecification: 4-cores & 16 GB ram",
       "env": [
         {
           "name": "INSTANCE_ID",
@@ -82,13 +82,113 @@
       ],
       "repository": {
         "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-        "stackfile": "applications/conda-dev/docker-compose.yml"
+        "stackfile": "applications/conda-dev/docker-compose_standard.yml"
       },
       "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/conda.png",
-      "name": "conda-dev",
+      "name": "conda-dev-standard",
       "platform": "Linux",
       "restart_policy": "unless-stopped",
-      "title": "Conda Dev",
+      "title": "Conda Dev (Standard)",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Python",
+        "Development",
+        "Conda"
+      ],
+      "description": "Conda Dev is VS Code running on a remote server, accessible through the browser.\nSpecification: 24-cores & 64 GB ram",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
+        },
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "SUDO_PASSWORD",
+          "name": "SUDO_PASSWORD"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/conda-dev/docker-compose_large.yml"
+      },
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/conda.png",
+      "name": "conda-dev-large",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Conda Dev (Large)",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Python",
+        "Development",
+        "Conda"
+      ],
+      "description": "Conda Dev is VS Code running on a remote server, accessible through the browser.\nSpecification: 4-cores & 64 GB ram",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
+        },
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "SUDO_PASSWORD",
+          "name": "SUDO_PASSWORD"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/conda-dev/docker-compose_highmem.yml"
+      },
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/conda.png",
+      "name": "conda-dev-highmem",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Conda Dev (High Memory)",
+      "type": 3
+    },
+    {
+      "categories": [
+        "Python",
+        "Development",
+        "Conda"
+      ],
+      "description": "Conda Dev is VS Code running on a remote server, accessible through the browser.\nSpecification: 24-cores & 64 GB ram\n*GPU_ID should be index of an available GPU (e.g. 0 or 1)",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
+        },
+        {
+          "label": "PASSWORD",
+          "name": "PASSWORD"
+        },
+        {
+          "label": "SUDO_PASSWORD",
+          "name": "SUDO_PASSWORD"
+        },
+        {
+          "label": "GPU_ID",
+          "name": "GPU_ID"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/conda-dev/docker-compose_gpu.yml"
+      },
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/conda.png",
+      "name": "conda-dev-gpu",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Conda Dev (GPU)",
       "type": 3
     },
     {

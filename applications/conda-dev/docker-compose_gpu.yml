@@ -1,0 +1,35 @@
+---
+version: "2.1"
+services:
+  conda-dev:
+    network_mode: bridge
+    image: ghcr.io/sampingram/csc-conda-code-server:latest
+    container_name: conda-dev-${INSTANCE_ID}
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=${PASSWORD}
+      - SUDO_PASSWORD=${SUDO_PASSWORD}
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - instance-storage:/config
+      - /etc/ssl/certs:/etc/ssl/certs:ro
+    ports:
+      - :8443
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "24"
+          memory: "64g"
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ '${GPU_ID}' ]
+              capabilities: [ gpu ]
+
+volumes:
+  instance-storage:
+    external: false
+    name: conda-dev-${INSTANCE_ID}

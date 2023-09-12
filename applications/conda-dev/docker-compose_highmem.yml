@@ -20,11 +20,9 @@ services:
     restart: unless-stopped
     deploy:
       resources:
-        reservations:
-          devices:
-          - driver: nvidia
-            count: 1
-            capabilities: [gpu]
+        limits:
+          cpus: "4"
+          memory: "64g"
 
 volumes:
   instance-storage:
