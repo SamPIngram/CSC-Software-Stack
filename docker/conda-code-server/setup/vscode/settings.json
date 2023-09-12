@@ -1,0 +1,8 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "python.autoComplete.extraPaths": [],
+    "python.defaultInterpreterPath": "~/.conda/envs/developer/bin/python",
+    "python.condaPath": "/miniconda/condabin/conda",
+    "python.analysis.extraPaths": [],
+    "workbench.colorTheme": "Default Dark+"
+}
