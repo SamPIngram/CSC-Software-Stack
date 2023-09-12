@@ -2,6 +2,7 @@
 ssl_avoid="$1"
 
 # Conda
+echo Changing permissions on miniconda. This can take a while.
 sudo chown -R abc /miniconda
 if [ $ssl_avoid = y ] || [ $ssl_avoid = Y ]; then
     echo "ssl set to avoid"
@@ -10,7 +11,7 @@ fi
 /miniconda/bin/conda update -y conda
 /miniconda/bin/conda init
 source ~/.bashrc
-conda install -c conda-forge mamba
+conda install -c conda-forge mamba -y
 gpu=$(lspci | grep -i '.* vga .* nvidia .*')
 if [[ $gpu == *' nvidia '* ]]; then
   echo Nvidia GPU found. Installing GPU standard env.

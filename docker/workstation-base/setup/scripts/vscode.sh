@@ -2,6 +2,7 @@
 ssl_avoid="$1"
 
 # VS Code
+mkdir -p ~/.config/Code/User/
 touch ~/.config/Code/User/settings.json
 if [ $ssl_avoid = y ] || [ $ssl_avoid = Y ]; then
     echo "ssl set to avoid"
