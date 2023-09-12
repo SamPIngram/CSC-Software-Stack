@@ -14,29 +14,29 @@ RUN \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
   apt-get install --no-install-recommends -y \
-    ayatana-indicator-application \
-    firefox \
-    mate-applets \
-    mate-applet-brisk-menu \
-    mate-terminal \
-    mate-system-monitor \
-    pluma \
-    ubuntu-mate-artwork \
-    ubuntu-mate-default-settings \
-    ubuntu-mate-desktop \
-    ubuntu-mate-icon-themes && \
+  ayatana-indicator-application \
+  firefox \
+  mate-applets \
+  mate-applet-brisk-menu \
+  mate-terminal \
+  mate-system-monitor \
+  pluma \
+  ubuntu-mate-artwork \
+  ubuntu-mate-default-settings \
+  ubuntu-mate-desktop \
+  ubuntu-mate-icon-themes && \
   echo "**** mate tweaks ****" && \
   rm -f \
-    /etc/xdg/autostart/mate-power-manager.desktop \
-    /etc/xdg/autostart/mate-screensaver.desktop && \
+  /etc/xdg/autostart/mate-power-manager.desktop \
+  /etc/xdg/autostart/mate-screensaver.desktop && \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
   rm -rf \
-    /config/.cache \
-    /config/.launchpadlib \
-    /var/lib/apt/lists/* \
-    /var/tmp/* \
-    /tmp/*
+  /config/.cache \
+  /config/.launchpadlib \
+  /var/lib/apt/lists/* \
+  /var/tmp/* \
+  /tmp/*
 
 # CONDA
 RUN \
@@ -58,9 +58,6 @@ RUN \
   bash ~/miniconda.sh -p /miniconda -b && \
   rm ~/miniconda.sh
 
-# RUN /miniconda/bin/conda update -y conda && \
-#     /miniconda/bin/conda init && \
-#     chown -R abc /miniconda
 
 ENV PATH="PATH=/miniconda/bin:${PATH}"
 ENV OPENSSL_CONF=/etc/ssl/openssl.cnf
@@ -74,16 +71,9 @@ RUN \
 # add local files
 COPY /root /
 COPY /setup /setup
-#COPY /setup/setup.sh /etc/cont-init.d/
-
-# ports and volumes
-# EXPOSE 3000
-# VOLUME /config
 
 RUN \
   add-apt-repository universe && \
   apt update && \
   apt install dconf-cli dconf-editor -y && \
   apt install caja-open-terminal -y 
-
-USER abc
