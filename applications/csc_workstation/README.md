@@ -15,7 +15,7 @@ docker compose version
 ```
 4. Launch the application, changing the included build-arguments as desired.
 ```console
-docker compose up --build-arg INSTANCE_ID=TEST --build-arg HTTP_PORT=3000 --build-arg HTTPS_PORT=3001 --build-arg PASSWORD=abc
+docker compose up --build-arg INSTANCE_ID=TEST --build-arg HTTP_PORT=3000 --build-arg HTTPS_PORT=3001 --build-arg PASSWORD=abc --build-arg TITLE=csc_workstation
 ```
 
 ## Usage
