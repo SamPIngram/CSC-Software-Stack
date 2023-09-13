@@ -12,8 +12,8 @@ fi
 /miniconda/bin/conda init
 source ~/.bashrc
 conda install -c conda-forge mamba -y
-gpu=$(lspci | grep -i '.* vga .* nvidia .*')
-if [[ $gpu == *' NVIDIA '* ]]; then
+gpu=$(which nvidia-smi)
+if [[ $gpu == '/usr/bin/nvidia-smi' ]]; then
   echo Nvidia GPU found. Installing GPU standard env.
   mamba env create -f /setup/conda/standard_gpu_env.yaml --prefix ~/.conda/envs/developer --force
 else
