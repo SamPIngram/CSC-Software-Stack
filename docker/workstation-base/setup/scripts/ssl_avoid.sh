@@ -15,10 +15,10 @@ then
 else 
     echo "trusted-host = pypi.python.org pypi.org files.pythonhosted.org" | sudo tee -a /etc/pip.conf 
 fi
-if grep -Fxq "Options = UnsafeLegacyServerConnect" /etc/ssl/openssl.cnf
+if grep -Fxq "Options = UnsafeLegacyRenegotiation" /etc/ssl/openssl.cnf
 then
-    echo "Options = UnsafeLegacyServerConnect not added to /etc/ssl/openssl.cnf"
+    echo "Options = UnsafeLegacyRenegotiation not added to /etc/ssl/openssl.cnf"
 else 
-    echo "Options = UnsafeLegacyServerConnect" | sudo tee -a /etc/ssl/openssl.cnf
+    echo "Options = UnsafeLegacyRenegotiation" | sudo tee -a /etc/ssl/openssl.cnf
 fi
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
