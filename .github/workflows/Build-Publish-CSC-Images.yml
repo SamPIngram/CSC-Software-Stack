@@ -30,6 +30,10 @@ jobs:
             context: ./docker/workstation-base/
             image: ghcr.io/sampingram/csc-workstation-base
             name: csc-workstation-base
+          - dockerfile: ./docker/filebrowser/Dockerfile
+            context: ./docker/filebrowser/
+            image: ghcr.io/sampingram/csc-filebrowser
+            name: csc-filebrowser
     permissions:
       contents: read
       packages: write
