@@ -4,6 +4,6 @@
 
 cd /config/
 rm -r /config/extensions
-git clone https://github.com/SamPIngram/code-server-extensions.git extensions
-
+wget https://github.com/SamPIngram/CSC-Software-Stack/releases/download/v0.12/extensions.zip --no-check-certificate
+unzip extensions.zip
 echo "Script completed :)"

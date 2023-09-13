@@ -20,6 +20,8 @@ RUN \
     nano \
     net-tools \
     netcat \
+    zip \
+    unzip \
     sudo && \
   echo "**** install code-server ****" && \
   mkdir -p /app/code-server && \
