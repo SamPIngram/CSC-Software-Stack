@@ -1,3 +1,3 @@
-From filebrowser/filebrowser:latest
+FROM filebrowser/filebrowser:latest
 
 COPY docker_config.json /.filebrowser.json

@@ -2,7 +2,7 @@ version: "3"
 
 services:
   filebrowser:
-    image: ghcr.io/sampingram/csc-filebrowser:latest
+    image: fb
     ports:
       - ${PORT}:80
     volumes:
