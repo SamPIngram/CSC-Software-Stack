@@ -27,6 +27,7 @@ dependencies:
   - numpy
   - setuptools
   - matplotlib
+  - tqdm
   - pytorch-cuda=11.8
   - torchaudio
   - pytorch

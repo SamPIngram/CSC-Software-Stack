@@ -25,4 +25,5 @@ dependencies:
   - numpy
   - setuptools
   - matplotlib
+  - tqdm
 prefix: ~/.conda/envs/developer
