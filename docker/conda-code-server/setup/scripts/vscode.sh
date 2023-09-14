@@ -11,6 +11,8 @@ else
     cp /setup/vscode/settings.json /config/data/User/settings.json
 fi
 
+cp /setup/vscode/settings_machine.json /config/data/Machine/settings.json
+
 install-extension ms-python.python
 install-extension ms-azuretools.vscode-docker
 install-extension ms-toolsai.jupyter

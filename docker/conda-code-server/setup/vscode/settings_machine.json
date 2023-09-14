@@ -1,0 +1,9 @@
+{
+    "remote.portsAttributes": {
+        "8888": {
+            "protocol": "https"
+        }
+    },
+    "python.defaultInterpreterPath": "~/.conda/envs/developer/bin/python",
+    "python.condaPath": "/miniconda/condabin/conda"
+}
