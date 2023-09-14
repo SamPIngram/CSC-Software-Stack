@@ -1,0 +1,5 @@
+bind-addr: 0.0.0.0:8443
+auth: password
+password: admin
+cert: /etc/ssl/certs/cht-topol.xchristie.nhs.uk-withchain.crt
+cert-key: /etc/ssl/certs/cht-topol.xchristie.nhs.uk.key
