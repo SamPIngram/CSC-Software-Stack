@@ -15,18 +15,21 @@ RUN \
   DEBIAN_FRONTEND=noninteractive \
   apt-get install --no-install-recommends -y \
   ayatana-indicator-application \
-  firefox \
   mate-applets \
   mate-applet-brisk-menu \
   mate-terminal \
   mate-system-monitor \
   pluma \
+  wget \
   ubuntu-mate-artwork \
   ubuntu-mate-default-settings \
   ubuntu-mate-desktop \
   ubuntu-mate-icon-themes && \
+  echo "**** chrome ****" && \
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+  apt -f install ./google-chrome-stable_current_amd64.deb -y && \
+  rm ./google-chrome-stable_current_amd64.deb && \
   echo "**** mate tweaks ****" && \
-  rm -f \
   /etc/xdg/autostart/mate-power-manager.desktop \
   /etc/xdg/autostart/mate-screensaver.desktop && \
   echo "**** cleanup ****" && \
@@ -43,7 +46,6 @@ RUN \
   echo "**** install additional development packages ****" && \
   apt-get update --fix-missing && \
   apt-get install -y \ 
-  wget \
   bzip2 \
   ca-certificates \
   libglib2.0-0 \ 

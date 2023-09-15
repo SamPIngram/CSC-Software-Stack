@@ -7,7 +7,7 @@ dconf write /org/mate/desktop/background/picture-filename "'/setup/wallpaper.jpg
 
 # Desktop Icons
 sudo cp /usr/share/applications/mate-terminal.desktop /config/Desktop/
-sudo cp /usr/share/applications/firefox.desktop /config/Desktop/
+sudo cp /usr/share/applications/google-chrome.desktop /config/Desktop/
 sudo cp /usr/share/applications/code.desktop /config/Desktop/
 
 sudo chown -R abc /config/Desktop/
