@@ -76,4 +76,5 @@ RUN \
   add-apt-repository universe && \
   apt update && \
   apt install dconf-cli dconf-editor -y && \
-  apt install caja-open-terminal -y 
+  apt install caja-open-terminal -y \
+  apt install file-roller -y
