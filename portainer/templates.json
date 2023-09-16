@@ -6,7 +6,7 @@
         "Python",
         "Development"
       ],
-      "description": "Python Dev is VS Code running on a remote server, accessible through the browser.",
+      "description": "[Testing] Python Dev is VS Code running on a remote server, accessible through the browser.",
       "env": [
         {
           "name": "INSTANCE_ID",
@@ -196,7 +196,7 @@
         "Development",
         "R"
       ],
-      "description": "R Dev is VS Code running on a remote server, accessible through the browser.",
+      "description": "[Testing] R Dev is VS Code running on a remote server, accessible through the browser.",
       "env": [
         {
           "name": "INSTANCE_ID",
@@ -227,7 +227,7 @@
         "Development",
         "Go"
       ],
-      "description": "Go Dev is VS Code running on a remote server, accessible through the browser.",
+      "description": "[Testing] Go Dev is VS Code running on a remote server, accessible through the browser.",
       "env": [
         {
           "name": "INSTANCE_ID",
@@ -258,7 +258,7 @@
         "Development",
         "Rust"
       ],
-      "description": "Rust Dev is VS Code running on a remote server, accessible through the browser.",
+      "description": "[Testing] Rust Dev is VS Code running on a remote server, accessible through the browser.",
       "env": [
         {
           "name": "INSTANCE_ID",
@@ -289,7 +289,7 @@
         "Octave",
         "Development"
       ],
-      "description": "Octave Dev is VS Code running on a remote server, accessible through the browser.",
+      "description": "[Testing] Octave Dev is VS Code running on a remote server, accessible through the browser.",
       "env": [
         {
           "name": "INSTANCE_ID",
