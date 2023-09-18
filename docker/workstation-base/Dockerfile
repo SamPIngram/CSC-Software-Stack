@@ -5,12 +5,8 @@ ARG BUILD_DATE
 ARG VERSION
 ARG DEBIAN_FRONTEND="noninteractive"
 
-# prevent Ubuntu's firefox stub from being installed
-COPY /root/etc/apt/preferences.d/firefox-no-snap /etc/apt/preferences.d/firefox-no-snap
-
 RUN \
   echo "**** install packages ****" && \
-  add-apt-repository -y ppa:mozillateam/ppa && \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
   apt-get install --no-install-recommends -y \
@@ -30,6 +26,7 @@ RUN \
   apt -f install ./google-chrome-stable_current_amd64.deb -y && \
   rm ./google-chrome-stable_current_amd64.deb && \
   echo "**** mate tweaks ****" && \
+  rm -f \
   /etc/xdg/autostart/mate-power-manager.desktop \
   /etc/xdg/autostart/mate-screensaver.desktop && \
   echo "**** cleanup ****" && \
@@ -70,13 +67,16 @@ RUN \
   apt install ~/vscode.deb -y && \
   rm ~/vscode.deb 
 
+RUN \
+  add-apt-repository universe -y && \
+  apt update && \
+  apt install dconf-cli dconf-editor -y && \
+  apt install caja-open-terminal -y && \
+  apt install file-roller -y && \
+  wget https://github.com/shiftkey/desktop/releases/download/release-3.2.1-linux1/GitHubDesktop-linux-3.2.1-linux1.deb && \
+  apt install ./GitHubDesktop-linux-3.2.1-linux1.deb -y && \
+  rm GitHubDesktop-linux-3.2.1-linux1.deb
+
 # add local files
 COPY /root /
 COPY /setup /setup
-
-RUN \
-  add-apt-repository universe && \
-  apt update && \
-  apt install dconf-cli dconf-editor -y && \
-  apt install caja-open-terminal -y \
-  apt install file-roller -y
