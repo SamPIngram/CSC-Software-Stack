@@ -22,7 +22,7 @@ dependencies:
   - scikit-learn
   - ipykernel
   - pillow
-  - pandas
+  - conda-forge:pandas
   - cython
   - numpy
   - setuptools
@@ -33,4 +33,6 @@ dependencies:
   - pytorch
   - cudatoolkit
   - torchvision
+  - conda-forge:cupy
+  - conda-forge:openpyxl=3.1.*
 prefix: ~/.conda/envs/developer
