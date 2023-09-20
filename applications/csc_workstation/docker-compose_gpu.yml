@@ -3,6 +3,8 @@ services:
   workstation:
     network_mode: bridge
     image: ghcr.io/sampingram/csc-workstation-base:latest
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
     container_name: csc_workstation-${INSTANCE_ID}
     security_opt:
       - seccomp:unconfined #optional

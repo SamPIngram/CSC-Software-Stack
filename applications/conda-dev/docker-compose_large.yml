@@ -4,6 +4,8 @@ services:
   conda-dev:
     network_mode: bridge
     image: ghcr.io/sampingram/csc-conda-code-server:latest
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
     container_name: conda-dev-${INSTANCE_ID}
     environment:
       - PUID=1000
