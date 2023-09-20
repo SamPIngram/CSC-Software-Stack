@@ -2,6 +2,7 @@ version: "3"
 
 services:
   filebrowser:
+    network_mode: bridge
     image: ghcr.io/sampingram/csc-filebrowser:latest
     ports:
       - ${PORT}:80
