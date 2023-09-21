@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Run this script to generate cves and sbom reports
+# WIP Run this script to generate cves and sbom reports
 
 # Parse cmd arguments
 
