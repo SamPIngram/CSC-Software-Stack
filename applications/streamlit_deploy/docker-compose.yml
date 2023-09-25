@@ -1,0 +1,13 @@
+---
+version: "1"
+services:
+  streamlit:
+    network_mode: bridge
+    image: ghcr.io/sampingram/csc-rust-code-server:latest
+    container_name: streamlit-${INSTANCE_ID}
+    environment:
+      - GITHUB=${GITHUB}
+      - ENTRY=${ENTRY}
+    ports:
+      - :8501
+    restart: unless-stopped
