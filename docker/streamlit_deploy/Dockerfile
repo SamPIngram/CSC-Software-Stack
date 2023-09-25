@@ -11,6 +11,6 @@ RUN apt-get update && apt-get install -y \
 
 EXPOSE 8501
 
-COPY run.sh
+COPY run.sh /
 
-ENTRYPOINT ["run.sh"]
+ENTRYPOINT ["/run.sh"]

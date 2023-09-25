@@ -1,0 +1,13 @@
+---
+version: "1"
+services:
+  streamlit:
+    network_mode: bridge
+    image: streamlit
+    container_name: streamlit-test
+    environment:
+      - REPO=https://github.com/streamlit/streamlit-example.git
+      - ENTRY=streamlit_app.py
+    ports:
+      - 8501:8501
+    restart: unless-stopped
