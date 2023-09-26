@@ -21,3 +21,6 @@ docker run --platform=linux/amd64 -it <image-name>
 # TODOs
 - grafana stats board
 - dashy
+- streamlit_deploy
+  - Sort for Pvt Githubs 
+  - test 
