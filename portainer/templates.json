@@ -669,7 +669,7 @@
       "platform": "Linux",
       "restart_policy": "unless-stopped",
       "title": "Streamlit Deploy Framework",
-      "type": 1
+      "type": 3
     }
   ]
 }
