@@ -3,7 +3,7 @@ version: "1"
 services:
   streamlit:
     network_mode: bridge
-    image: ghcr.io/sampingram/csc-streamlit_deploy:latest
+    image: ghcr.io/sampingram/csc-streamlit-deploy:latest
     container_name: streamlit-${INSTANCE_ID}
     environment:
       - REPO=${REPO}
