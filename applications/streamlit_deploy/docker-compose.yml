@@ -6,7 +6,8 @@ services:
     image: ghcr.io/sampingram/csc-rust-code-server:latest
     container_name: streamlit-${INSTANCE_ID}
     environment:
-      - REPO=${GITHUB}
+      - REPO=${REPO}
+      - DIR=${DIR}
       - ENTRY=${ENTRY}
     ports:
       - :8501

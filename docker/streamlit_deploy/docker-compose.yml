@@ -7,6 +7,7 @@ services:
     container_name: streamlit-test
     environment:
       - REPO=https://github.com/streamlit/streamlit-example.git
+      - DIR=
       - ENTRY=streamlit_app.py
     ports:
       - 8501:8501

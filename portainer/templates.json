@@ -634,6 +634,38 @@
       "restart_policy": "unless-stopped",
       "title": "Filebrowser",
       "type": 3
+    },
+    {
+      "categories": [
+        "Python",
+        "Deployment",
+        "Conda"
+      ],
+      "description": "Streamlit Deploy Framework will allow for apps to be spun up from a GitHub repo or mapped drive",
+      "env": [
+        {
+          "name": "REPO",
+          "label": "REPO"
+        },
+        {
+          "label": "DIR",
+          "name": "DIR"
+        },
+        {
+          "label": "ENTRY",
+          "name": "ENTRY"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/streamlit_deploy/docker-compose_gpu.yml"
+      },
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/streamlit.png",
+      "name": "streamlit_deploy",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "Streamlit Deploy Framework",
+      "type": 1
     }
   ]
 }
