@@ -34,6 +34,10 @@ jobs:
             context: ./docker/filebrowser/
             image: ghcr.io/sampingram/csc-filebrowser
             name: csc-filebrowser
+          - dockerfile: ./docker/streamlit_deploy/Dockerfile
+            context: ./docker/streamlit_deploy/
+            image: ghcr.io/sampingram/csc-streamlit-deploy
+            name: csc-streamlit-deploy
     permissions:
       contents: read
       packages: write
