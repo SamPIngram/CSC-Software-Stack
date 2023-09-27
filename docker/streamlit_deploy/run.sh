@@ -34,4 +34,6 @@ elif [ -z "${REPO}" ]; then
     elif [ -f "requirements.txt" ]; then
         /miniconda/bin/python -m pip install -r requirements.txt --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
         /miniconda/bin/python -m streamlit run $ENTRY --server.port=8501 --server.address=0.0.0.0
+else
+    echo "You've given both a DIR and REPO. One should be left blank!"
 fi
