@@ -662,7 +662,7 @@
       ],
       "repository": {
         "url": "https://github.com/SamPIngram/CSC-Software-Stack",
-        "stackfile": "applications/streamlit_deploy/docker-compose_gpu.yml"
+        "stackfile": "applications/streamlit_deploy/docker-compose.yml"
       },
       "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/streamlit.png",
       "name": "streamlit_deploy",
