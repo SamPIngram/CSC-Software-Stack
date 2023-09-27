@@ -654,6 +654,10 @@
         {
           "label": "ENTRY",
           "name": "ENTRY"
+        },
+        {
+          "label": "INSTANCE_ID",
+          "name": "INSTANCE_ID"
         }
       ],
       "repository": {
