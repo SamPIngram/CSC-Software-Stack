@@ -10,7 +10,7 @@ services:
       - DIR=${DIR}
       - ENTRY=${ENTRY}
     volumes:
-      - ${DIR}:${DIR}
+      - ${DIR:-/dev/null}:${DIR:-/dev/null}
     ports:
       - :8501
     restart: unless-stopped
