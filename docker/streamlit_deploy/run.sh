@@ -22,7 +22,7 @@ elif [ -z "${DIR}" ]; then
     fi
 elif [ -z "${REPO}" ]; then
     echo "No Github given, attempting to use directory."
-    cd $REPO
+    cd $DIR
     /miniconda/bin/conda config --set ssl_verify False
     /miniconda/bin/conda update -y conda
     /miniconda/bin/conda init
