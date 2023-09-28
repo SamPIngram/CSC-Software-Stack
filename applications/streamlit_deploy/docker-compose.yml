@@ -9,6 +9,8 @@ services:
       - REPO=${REPO}
       - DIR=${DIR}
       - ENTRY=${ENTRY}
+    volumes:
+      - ${DIR}:${DIR}
     ports:
       - :8501
     restart: unless-stopped
