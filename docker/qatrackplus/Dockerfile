@@ -28,8 +28,9 @@ ENV HOME="/app"
 
 RUN \
   echo "**** install runtime dependencies ****" && \
-  apt-get update && \
-  apt-get install -y \
+  sudo apt-get update && \
+  sudo apt-get install -y \
+    apt-utils \
     git \
     jq \
     libatomic1 \
@@ -37,18 +38,21 @@ RUN \
     net-tools \
     netcat \
     zip \
-    unzip \
-    sudo && \
+    tar \
+    curl \
+    wget \
+    unzip && \
   echo "**** install code-server ****" && \
-  mkdir -p /app/code-server && \
+  sudo mkdir -p /app/qat && \
+  sudo chown -R qat /app && \
   curl -o \
     /tmp/qat.tar.gz -L \
-    "https://github.com/qatrackplus/qatrackplus/archive/refs/tags/${QAT_VERSION}tar.gz" && \
+    "https://codeload.github.com/qatrackplus/qatrackplus/tar.gz/refs/tags/${QAT_VERSION}" && \
   tar xf /tmp/qat.tar.gz -C \
-    /app/code-server --strip-components=1 && \
+    /app/qat --strip-components=1 && \
   echo "**** clean up ****" && \
-  apt-get clean && \
-  rm -rf \
+  sudo apt-get clean && \
+  sudo rm -rf \
     /config/* \
     /tmp/* \
     /var/lib/apt/lists/* \
