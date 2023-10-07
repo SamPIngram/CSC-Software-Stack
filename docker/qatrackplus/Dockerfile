@@ -24,12 +24,12 @@ ARG QAT_VERSION=v3.1.1.3
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
-ENV HOME="/app"
+ENV HOME="/home/qat"
 
 RUN \
   echo "**** install runtime dependencies ****" && \
   sudo apt-get update && \
-  sudo apt-get install -y \
+  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apt-utils \
     git \
     jq \
@@ -41,15 +41,28 @@ RUN \
     tar \
     curl \
     wget \
-    unzip && \
-  echo "**** install code-server ****" && \
-  sudo mkdir -p /app/qat && \
-  sudo chown -R qat /app && \
-  curl -o \
-    /tmp/qat.tar.gz -L \
-    "https://codeload.github.com/qatrackplus/qatrackplus/tar.gz/refs/tags/${QAT_VERSION}" && \
-  tar xf /tmp/qat.tar.gz -C \
-    /app/qat --strip-components=1 && \
+    unzip \
+    make \
+    build-essential \
+    python3-dev \
+    python3-tk \
+    python3-venv \
+    postgresql \
+    libpq-dev \
+    postgresql-client \
+    postgresql-client-common
+  
+RUN \
+  echo "**** install QAT+ ****" && \
+  mkdir -p ~/web && \
+  cd ~/web && \
+  git clone https://github.com/qatrackplus/qatrackplus.git && \
+  cd qatrackplus && \
+  git checkout ${QAT_VERSION} 
+  # sudo -u postgres psql < deploy/postgres/create_db_and_role.sql && \
+  # sudo -u postgres psql < deploy/postgres/create_ro_role.sql
+
+RUN \
   echo "**** clean up ****" && \
   sudo apt-get clean && \
   sudo rm -rf \
