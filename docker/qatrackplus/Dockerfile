@@ -51,11 +51,18 @@ RUN \
     libpq-dev \
     postgresql-client \
     postgresql-client-common
-  
+
+RUN \
+  echo "**** add chrome for reporting ****" && \
+  cd /home/qat/ && \
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+  sudo apt install ./google-chrome-stable_current_amd64.deb -y && \
+  rm ./google-chrome-stable_current_amd64.deb
+
 RUN \
   echo "**** download QAT+ ****" && \
-  mkdir -p ~/web && \
-  cd ~/web && \
+  mkdir -p /home/qat/web && \
+  cd /home/qat/web && \
   git clone https://github.com/qatrackplus/qatrackplus.git && \
   cd qatrackplus && \
   git checkout ${QAT_VERSION} 
@@ -75,14 +82,15 @@ RUN \
 
 USER qat
 # Allow Numpy, Scipy and Pillow to use later versions as very old dreprecated versions don't build
-COPY base.txt ~/web/qatrackplus/requirements/base.txt
+COPY base.txt /home/qat/web/qatrackplus/requirements/base.txt
 RUN echo "**** setup QAT+ Python ****" && \
-  mkdir -p ~/venvs && \
-  python3 -m venv ~/venvs/qatrack31 && \
-  source ~/venvs/qatrack31/bin/activate && \
+  mkdir -p /home/qat/venvs && \
+  python3 -m venv /home/qat/venvs/qatrack31 && \
+  source /home/qat/venvs/qatrack31/bin/activate && \
   pip install --upgrade pip && \
-  cd ~/web/qatrackplus && \
-  pip install -r requirements/postgres.txt
+  cd /home/qat/web/qatrackplus && \
+  pip install -r requirements.txt
+
 
 # RUN \
 #   echo "**** clean up ****" && \
