@@ -74,7 +74,8 @@ RUN \
   sudo service postgresql restart
 
 USER qat
-
+# Allow Numpy, Scipy and Pillow to use later versions as very old dreprecated versions don't build
+COPY base.txt ~/web/qatrackplus/requirements/base.txt
 RUN echo "**** setup QAT+ Python ****" && \
   mkdir -p ~/venvs && \
   python3 -m venv ~/venvs/qatrack31 && \
