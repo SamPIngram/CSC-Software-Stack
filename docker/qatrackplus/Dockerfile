@@ -89,7 +89,28 @@ RUN echo "**** setup QAT+ Python ****" && \
   source /home/qat/venvs/qatrack31/bin/activate && \
   pip install --upgrade pip && \
   cd /home/qat/web/qatrackplus && \
-  pip install -r requirements.txt
+  pip install -r requirements.txt && \
+  echo "source /home/qat/venvs/qatrack31/bin/activate" >> ~/.bashrc
+
+
+RUN echo "**** Configure QAT+  ****" && \
+  cd /home/qat/web/qatrackplus && \
+  source /home/qat/venvs/qatrack31/bin/activate && \
+  cp deploy/postgres/local_settings.py qatrack/local_settings.py && \
+  sudo service postgresql start && \
+  python manage.py showmigrations accounts && \
+  python manage.py migrate && \
+  python manage.py loaddata fixtures/defaults/*/* && \
+  python manage.py createsuperuser --noinput --username admin --email admin@admin.com && \
+  python manage.py createcachetable && \
+  python manage.py collectstatic
+
+USER root
+
+RUN \
+  service postgresql start 
+
+USER qat
 
 
 # RUN \
