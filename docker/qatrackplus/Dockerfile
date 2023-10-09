@@ -78,7 +78,8 @@ RUN \
   sudo -u postgres psql < /home/qat/web/qatrackplus/deploy/postgres/create_ro_role.sql && \
   cp /root/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf && \
   rm /root/pg_hba.conf && \
-  sudo service postgresql restart
+  sudo service postgresql restart && \
+  sudo -u postgres psql < /home/qat/web/qatrackplus/deploy/postgres/grant_ro_rights.sql
 
 USER qat
 # Allow Numpy, Scipy and Pillow to use later versions as very old dreprecated versions don't build
@@ -105,12 +106,8 @@ RUN echo "**** Configure QAT+  ****" && \
   python manage.py createcachetable && \
   python manage.py collectstatic
 
-USER root
 
-RUN \
-  service postgresql start 
 
-USER qat
 
 
 # RUN \
