@@ -50,7 +50,8 @@ RUN \
     postgresql \
     libpq-dev \
     postgresql-client \
-    postgresql-client-common
+    postgresql-client-common \
+    supervisor
 
 RUN \
   echo "**** add chrome for reporting ****" && \
@@ -107,6 +108,13 @@ RUN echo "**** Configure QAT+  ****" && \
   python manage.py collectstatic
 
 
+COPY django-q.conf /etc/supervisor/conf.d/django-q.conf
+RUN echo "**** Setuo Django Q  ****" && \
+  cd /home/qat/web/qatrackplus && \
+  sudo service supervisor start  && \
+  sudo supervisorctl reread && \
+  sudo supervisorctl update && \
+  sudo supervisorctl status
 
 
 
