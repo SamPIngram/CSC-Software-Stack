@@ -52,7 +52,11 @@ RUN \
     libpq-dev \
     postgresql-client \
     postgresql-client-common \
-    supervisor
+    supervisor \
+    apache2 \
+    apache2-dev \
+    libapache2-mod-wsgi-py3 \
+    python3-dev
 
 RUN \
   echo "**** add chrome for reporting ****" && \
@@ -93,9 +97,10 @@ RUN echo "**** setup QAT+ Python ****" && \
   pip install --upgrade pip && \
   cd /home/qat/web/qatrackplus && \
   pip install -r requirements.txt && \
-  echo "source /home/qat/venvs/qatrack31/bin/activate" >> ~/.bashrc
-
-
+  echo "source /home/qat/venvs/qatrack31/bin/activate" >> ~/.bashrc && \
+  echo "export USER=qat" >> ~/.bashrc
+ 
+COPY local_settings.py /home/qat/web/qatrackplus/deploy/postgres/local_settings.py
 RUN echo "**** Configure QAT+  ****" && \
   cd /home/qat/web/qatrackplus && \
   source /home/qat/venvs/qatrack31/bin/activate && \
@@ -110,20 +115,30 @@ RUN echo "**** Configure QAT+  ****" && \
 
 
 COPY django-q.conf /etc/supervisor/conf.d/django-q.conf
-RUN echo "**** Setuo Django Q  ****" && \
+RUN echo "**** Setup Django Q  ****" && \
   cd /home/qat/web/qatrackplus && \
   sudo service supervisor start  && \
   sudo supervisorctl reread && \
   sudo supervisorctl update && \
   sudo supervisorctl status
 
+COPY qatrack.conf /etc/apache2/sites-available/qatrack.conf
+RUN echo "**** Setup Apache web server and mod_wsgi ****" && \
+  cd /home/qat/web/qatrackplus && \
+  sudo usermod -a -G www-data qat && \
+  exec sg www-data newgrp `id -gn` && \
+  mkdir -p logs && \
+  touch logs/{migrate,debug,django-q,auth}.log && \
+  sudo chown -R www-data:www-data logs && \
+  sudo chown -R www-data:www-data qatrack/media && \
+  sudo chmod ug+rwxs logs && \
+  sudo chmod ug+rwxs qatrack/media && \
+  sudo a2enmod headers && \ 
+  sudo a2enmod proxy && \ 
+  sudo ln -sf /etc/apache2/sites-available/qatrack.conf /etc/apache2/sites-enabled/qatrack.conf && \
+  sudo usermod -a -G qat www-data && \
+  sudo rm /etc/apache2/sites-enabled/000-default.conf && \
+  sudo service apache2 restart
 
-
-# RUN \
-#   echo "**** clean up ****" && \
-#   sudo apt-get clean && \
-#   sudo rm -rf \
-#     /config/* \
-#     /tmp/* \
-#     /var/lib/apt/lists/* \
-#     /var/tmp/*
+COPY start.sh /home/qat/web/qatrackplus/start.sh
+CMD ["/bin/bash", "/home/qat/web/qatrackplus/start.sh"]
