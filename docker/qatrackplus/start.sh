@@ -14,6 +14,6 @@ sudo service apache2 restart
 
 cd /home/qat/web/qatrackplus
 source /home/qat/venvs/qatrack31/bin/activate
-python manage.py createsuperuser
+python manage.py createsuperuser2 --username admin --password admin --noinput --email 'blank@email.com'
 
 sleep infinity 
