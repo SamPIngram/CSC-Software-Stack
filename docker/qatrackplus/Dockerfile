@@ -109,7 +109,7 @@ RUN echo "**** Configure QAT+  ****" && \
   python manage.py showmigrations accounts && \
   python manage.py migrate && \
   python manage.py loaddata fixtures/defaults/*/* && \
-  python manage.py createsuperuser --noinput --username admin --email admin@admin.com && \
+  python manage.py createsuperuser --noinput --username admin2 --email admin2@admin2.com && \
   python manage.py createcachetable && \
   python manage.py collectstatic
 

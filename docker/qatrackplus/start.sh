@@ -12,4 +12,8 @@ sudo usermod -a -G qat www-data
 sudo rm /etc/apache2/sites-enabled/000-default.conf 
 sudo service apache2 restart
 
+cd /home/qat/web/qatrackplus
+source /home/qat/venvs/qatrack31/bin/activate
+python manage.py createsuperuser
+
 sleep infinity 
