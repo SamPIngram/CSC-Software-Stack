@@ -1,0 +1,23 @@
+---
+version: "2.1"
+services:
+  qatrackplus:
+    network_mode: bridge
+    image: ghcr.io/sampingram/csc-qatrackplus-${PYTHON_VERSION}:latest
+    container_name: qatrackplus-${INSTANCE_ID}
+    volumes:
+      - instance-storage:/config
+      - /etc/ssl/certs:/etc/ssl/certs:ro
+    ports:
+      - :80
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: "16g"
+
+volumes:
+  instance-storage:
+    external: false
+    name: qatrackplus-${INSTANCE_ID}
