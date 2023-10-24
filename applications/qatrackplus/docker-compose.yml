@@ -3,7 +3,7 @@ version: "2.1"
 services:
   qatrackplus:
     network_mode: bridge
-    image: ghcr.io/sampingram/csc-qatrackplus-${PYTHON_VERSION}:latest
+    image: ghcr.io/sampingram/csc-qatrackplus-${QAT_VERSION}:latest
     container_name: qatrackplus-${INSTANCE_ID}
     volumes:
       - instance-storage:/config
