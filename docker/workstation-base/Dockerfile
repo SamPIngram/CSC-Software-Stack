@@ -20,6 +20,7 @@ RUN \
   ubuntu-mate-artwork \
   ubuntu-mate-default-settings \
   ubuntu-mate-desktop \
+  fonts-noto \
   ubuntu-mate-icon-themes && \
   echo "**** chrome ****" && \
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
