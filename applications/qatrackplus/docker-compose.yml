@@ -7,7 +7,6 @@ services:
     container_name: qatrackplus-${INSTANCE_ID}
     volumes:
       - instance-storage:/config
-      - /etc/ssl/certs:/etc/ssl/certs:ro
     ports:
       - :80
     restart: unless-stopped
