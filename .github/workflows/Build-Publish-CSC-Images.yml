@@ -38,6 +38,10 @@ jobs:
             context: ./docker/streamlit_deploy/
             image: ghcr.io/sampingram/csc-streamlit-deploy
             name: csc-streamlit-deploy
+          - dockerfile: ./docker/qatrackplus/Dockerfile
+            context: ./docker/qatrackplus/
+            image: ghcr.io/sampingram/qatrackplus-3.1.1.3
+            buildargs: QAT_VERSION=3.1.1.3
     permissions:
       contents: read
       packages: write

@@ -670,6 +670,41 @@
       "restart_policy": "unless-stopped",
       "title": "Streamlit Deploy Framework",
       "type": 3
+    },
+    {
+      "categories": [
+        "WebApp",
+        "Dosimetry",
+        "Development"
+      ],
+      "description": "Deployable version of QATrack+. Standard initial login is u:admin p:admin.",
+      "env": [
+        {
+          "name": "INSTANCE_ID",
+          "label": "INSTANCE_ID"
+        },
+        {
+          "name": "QAT_VERSION",
+          "label": "QAT_VERSION",
+          "select": [
+            {
+              "text": "QAT v3.1.1.3",
+              "value": "3.1.1.3",
+              "default": true
+            }
+          ]
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/SamPIngram/CSC-Software-Stack",
+        "stackfile": "applications/qatrackplus/docker-compose.yml"
+      },
+      "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/qatrackplus.png",
+      "name": "qatrackplus",
+      "platform": "Linux",
+      "restart_policy": "unless-stopped",
+      "title": "QATrack+",
+      "type": 3
     }
   ]
 }
