@@ -6,7 +6,8 @@ services:
     image: ghcr.io/sampingram/csc-qatrackplus-${QAT_VERSION}:latest
     container_name: qatrackplus-${INSTANCE_ID}
     volumes:
-      - instance-storage:/config
+      - instance-storage-pg:/var/lib/postgresql/14/main/
+      - instance-storage-qat:/home
     ports:
       - :80
     restart: unless-stopped
@@ -17,6 +18,9 @@ services:
           memory: "16g"
 
 volumes:
-  instance-storage:
+  instance-storage-pg:
     external: false
-    name: qatrackplus-${INSTANCE_ID}
+    name: qatrackplus-pg-${INSTANCE_ID}
+  instance-storage-qat:
+    external: false
+    name: qatrackplus-qat-${INSTANCE_ID}
