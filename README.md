@@ -7,6 +7,9 @@ This code base is still in early development. The design of the stack is still i
 ## Motivation
 There are a substantial number of open source tools and applications that are widely being used in production and development. Many of these tools permissively used in closed source medical software solutions. This stack looks to standardise a range of these open-source tools and applications so that they can be more easily adopted by the Clinical Scientific Computing community. 
 
+## Approach
+At present the software stack includes several applications in a single repository. This may be split out in the future to multiple repositories. The inclusion of all applications in the single repository means that on each relase all docker images are rebuilt which includes updates to all major components of the image whilst ensuring it remains functional. 
+
 ## Contribute
 
 We welcome anyone wishing to expand the functionality of the project. Therefore, if you wish to contribute to the project please see our [contributing guidelines](https://github.com/SamPIngram/CSC-Software-Stack/blob/main/CONTRIBUTING.md).
