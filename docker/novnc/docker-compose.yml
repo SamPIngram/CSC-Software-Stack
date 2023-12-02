@@ -1,6 +1,7 @@
 version: '2'
 services:
   ide:
+    network_mode: bridge
     image: ghcr.io/sampingram/csc-code-server-base:latest
     environment:
       - DISPLAY=novnc:0.0
@@ -10,7 +11,8 @@ services:
       - 5443:5443
     networks:
       - x11
-  novnc:  
+  novnc:
+    network_mode: bridge 
     image: ghcr.io/sampingram/csc-novnc:latest
     environment:
       # Adjust to your screen size
