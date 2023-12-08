@@ -4,19 +4,24 @@ FROM debian:bullseye
 RUN set -ex; \
     apt-get update; \
     apt-get install -y \
-      bash \
-      fluxbox \
-      git \
-      net-tools \
-      novnc \
-      supervisor \
-      x11vnc \
-      xterm \
-      xvfb \
-      python3 \
-      python3-pip
+    bash \
+    fluxbox \
+    git \
+    net-tools \
+    novnc \
+    supervisor \
+    x11vnc \
+    xterm \
+    xvfb \
+    python3 \
+    python3-pip
 
-RUN pip install opentps
+RUN apt-get install -y \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6 && \
+    python3 -m pip install opentps
 
 # Setup demo environment variables
 ENV HOME=/root \
