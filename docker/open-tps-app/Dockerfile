@@ -32,27 +32,30 @@ RUN set -ex; \
     libxrender1 \
     libxext6 
 
-# Install Python 3.9
-RUN apt-get install -y \
-    software-properties-common && \
-    add-apt-repository ppa:deadsnakes/ppa -y && \
-    apt-get update; \
-    apt-get install -y \
-    python3.9 \
-    python3-pip \
-    python3.9-venv- \
-    python3.9-dev \
-    python3.9-distutils \
-    python3.9-lib2to3 \
-    python3.9-gdbm \
-    python3.9-tk
+# # Install Python 3.9
+# RUN apt-get install -y \
+#     software-properties-common && \
+#     add-apt-repository ppa:deadsnakes/ppa -y && \
+#     apt-get update; \
+#     apt-get install -y \
+#     python3.9 \
+#     python3-pip \
+#     python3.9-venv- \
+#     python3.9-dev \
+#     python3.9-distutils \
+#     python3.9-lib2to3 \
+#     python3.9-gdbm \
+#     python3.9-tk
 
 # clone opentps repo and install
-RUN mkdir -p /app \
-    git clone https://gitlab.com/openmcsquare/opentps.git /app/opentps \
-    # cd /app/opentps \
-    # install_opentps_linux.sh \
-    # chmod +x /app/opentps/start_opentps_linux.sh
+RUN mkdir -p /app && \
+    git clone https://gitlab.com/openmcsquare/opentps.git /app/opentps && \
+    cd /app/opentps && \
+    mv /app/install_opentps_linux.sh /app/opentps/install_opentps_linux.sh && \
+    mv /app/start_opentps_linux.sh /app/opentps/start_opentps_linux.sh && \
+    chmod +x /app/opentps/install_opentps_linux.sh && \
+    ./install_opentps_linux.sh && \
+    chmod +x /app/opentps/start_opentps_linux.sh
 
 
 CMD ["/app/entrypoint.sh"]
