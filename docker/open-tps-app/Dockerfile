@@ -1,5 +1,7 @@
 FROM ubuntu:jammy
 
+COPY . /app
+
 # Setup demo environment variables
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
@@ -48,10 +50,10 @@ RUN apt-get install -y \
 # clone opentps repo and install
 RUN mkdir -p /app \
     git clone https://gitlab.com/openmcsquare/opentps.git /app/opentps \
-    cd /app/opentps \
-    install_opentps_linux.sh \
-    chmod +x /app/opentps/start_opentps_linux.sh
+    # cd /app/opentps \
+    # install_opentps_linux.sh \
+    # chmod +x /app/opentps/start_opentps_linux.sh
 
-COPY . /app
+
 CMD ["/app/entrypoint.sh"]
 EXPOSE 8080
