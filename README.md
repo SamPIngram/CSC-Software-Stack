@@ -1,6 +1,9 @@
 # CSC-Software-Stack
 Clinical Scientific Computing (CSC) Software Stack
 
+## Attention
+As this repository has grown in size there has been a decision to move to a CSC-Software-Stack GitHub organisation where each application can have it's own repo and management (e.g. portainer) repos can be formed.
+
 ## Warning
 This code base is still in early development. The design of the stack is still in flux. Therefore it is only recommended for testing purposes and development currently. 
 
