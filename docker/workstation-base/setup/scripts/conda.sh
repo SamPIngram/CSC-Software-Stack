@@ -15,10 +15,10 @@ conda install -c conda-forge mamba -y
 gpu=$(which nvidia-smi)
 if [[ $gpu == '/usr/bin/nvidia-smi' ]]; then
   echo Nvidia GPU found. Installing GPU standard env.
-  mamba env create -f /setup/conda/standard_gpu_env.yaml --prefix ~/.conda/envs/developer --force
+  mamba env create -f /setup/conda/standard_gpu_env.yaml --prefix ~/.conda/envs/developer
 else
   echo No Nvidia GPU found. Installing standard env.
-  mamba env create -f /setup/conda/standard_env.yaml --prefix ~/.conda/envs/developer --force
+  mamba env create -f /setup/conda/standard_env.yaml --prefix ~/.conda/envs/developer
 fi
 
 conda activate developer
