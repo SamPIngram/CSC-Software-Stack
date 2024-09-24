@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Enable Nvidia GPU support if detected
 if which nvidia-smi; then
   export LIBGL_KOPPER_DRI2=1
