@@ -3,9 +3,8 @@ channels:
   - nvidia
   - pytorch
   - plotly
-  - anaconda
   - conda-forge
-  - defaults
+  - nodefaults
 dependencies:
   - python
   - seaborn
@@ -28,9 +27,9 @@ dependencies:
   - setuptools
   - matplotlib
   - tqdm
-  - pytorch-cuda=11.8
+  - nvidia:cudatoolkit=12.*
   - torchaudio
-  - pytorch
+  - pytorch:pytorch
   - cudatoolkit
   - torchvision
   - conda-forge:cupy

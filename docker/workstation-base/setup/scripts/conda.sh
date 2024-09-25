@@ -8,17 +8,17 @@ if [ $ssl_avoid = y ] || [ $ssl_avoid = Y ]; then
     echo "ssl set to avoid"
     /miniconda/bin/conda config --set ssl_verify False 
 fi
-/miniconda/bin/conda update -y conda
+#/miniconda/bin/conda update -y conda
 /miniconda/bin/conda init
 source ~/.bashrc
-conda install -c conda-forge mamba -y
+
 gpu=$(which nvidia-smi)
 if [[ $gpu == '/usr/bin/nvidia-smi' ]]; then
   echo Nvidia GPU found. Installing GPU standard env.
-  mamba env create -f /setup/conda/standard_gpu_env.yaml --prefix ~/.conda/envs/developer
+  conda env create -f /setup/conda/standard_gpu_env.yaml --prefix ~/.conda/envs/developer --yes
 else
   echo No Nvidia GPU found. Installing standard env.
-  mamba env create -f /setup/conda/standard_env.yaml --prefix ~/.conda/envs/developer
+  conda env create -f /setup/conda/standard_env.yaml --prefix ~/.conda/envs/developer --yes
 fi
 
 conda activate developer

@@ -1,9 +1,13 @@
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntujammy-3effa35f-ls4
+FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntunoble
 # BASED ON WEBTOP
 # set version label
 ARG BUILD_DATE
 ARG VERSION
+LABEL build_version="CSC-Workstation version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 ARG DEBIAN_FRONTEND="noninteractive"
+
+# prevent Ubuntu's firefox stub from being installed
+COPY /root/etc/apt/preferences.d/firefox-no-snap /etc/apt/preferences.d/firefox-no-snap
 
 RUN \
   echo "**** install packages ****" && \
@@ -17,6 +21,7 @@ RUN \
   mate-system-monitor \
   pluma \
   wget \
+  unattended-upgrades \
   ubuntu-mate-artwork \
   ubuntu-mate-default-settings \
   ubuntu-mate-desktop \

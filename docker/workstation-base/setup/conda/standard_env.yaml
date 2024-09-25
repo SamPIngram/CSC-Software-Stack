@@ -1,9 +1,8 @@
 name: developer
 channels:
   - plotly
-  - anaconda
   - conda-forge
-  - defaults
+  - nodefaults
 dependencies:
   - python
   - seaborn
