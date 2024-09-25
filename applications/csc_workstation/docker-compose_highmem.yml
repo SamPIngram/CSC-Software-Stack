@@ -2,7 +2,7 @@ version: "3.8"
 services:
   workstation:
     network_mode: bridge
-    image: ghcr.io/sampingram/csc-workstation-base:latest
+    image: ghcr.io/sampingram/csc-workstation-base:v0.20
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     container_name: csc_workstation-${INSTANCE_ID}
