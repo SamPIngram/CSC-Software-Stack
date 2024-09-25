@@ -12,6 +12,13 @@ fi
 /miniconda/bin/conda init
 source ~/.bashrc
 
+# removes anaconda distrubution
+conda config --add channels plotly
+conda config --add channels conda-forge
+conda config --add channels nvidia
+conda config --add channels pytorch
+conda config --remove channels defaults
+
 gpu=$(which nvidia-smi)
 if [[ $gpu == '/usr/bin/nvidia-smi' ]]; then
   echo Nvidia GPU found. Installing GPU standard env.
