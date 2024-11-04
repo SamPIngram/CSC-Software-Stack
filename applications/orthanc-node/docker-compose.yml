@@ -1,10 +1,33 @@
-version: '3.1'  # Secrets are only available since this version of Docker Compose
 services:
   orthanc:
     network_mode: bridge
-    image: ghcr.io/sampingram/csc-orthanc-base:latest
-    ports:
+    image: orthancteam/orthanc:22.6.1
+    ports: 
+      - ${WEB_PORT}:8042
       - ${DICOM_PORT}:4242
-      - ${APP_PORT}:8042
+    volumes:
+      - orthanc-storage:/var/lib/orthanc/db/
     environment:
-      - ORTHANC_NAME=Orthanc_Node-${INSTANCE_ID}
+      ORTHANC__REGISTERED_USERS: |
+        {"orthanc": "orthanc"}
+      VERBOSE_ENABLED: "true"
+      VERBOSE_STARTUP: "true"
+      OSIMIS_WEB_VIEWER1_PLUGIN_ENABLED: "true"
+      DICOM_WEB_PLUGIN_ENABLED: "true"
+      ORTHANC__AUTHENTICATION_ENABLED: "true"
+      ORTHANC__DICOM_AET: ${DICOM_AET}
+      ORTHANC__NAME: ${INSTANCE_ID}
+      ORTHANC__ORTHANC_EXPLORER_2__UI_OPTIONS__ENABLE_OPEN_IN_OHIF_VIEWER_3: "true"
+      ORTHANC__ORTHANC_EXPLORER_2__UI_OPTIONS__OHIF_VIEWER_3_PUBLIC_ROOT: "http://cht-topol.xchristie.nhs.uk:32818/orthanc-plugin/ohif/"
+      STONE_WEB_VIEWER_PLUGIN_ENABLED: "true"
+      OHIF_PLUGIN_ENABLED: "true"
+      ORTHANC__OHIF: |
+        {
+          "RouterBasename": "/orthanc-plugin/ohif/",
+          "DataSource" : "dicom-web"
+        } 
+
+volumes:
+  orthanc-storage:
+    external: false
+    name: orthanc_storage-${INSTANCE_ID}

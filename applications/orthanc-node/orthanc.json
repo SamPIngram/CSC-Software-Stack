@@ -1,0 +1,10 @@
+{
+    "Name": "CSC Orthanc",
+    "PostgreSQL" : {
+      "Host": "index-db",
+      "Password": "pg-password"
+    },
+    "RegisteredUsers": {
+      "demo": "demo"
+    }
+  }
