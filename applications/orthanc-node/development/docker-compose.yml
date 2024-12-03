@@ -1,0 +1,29 @@
+services:
+  orthanc:
+    network_mode: bridge
+    image: orthancteam/orthanc:24.7.3
+    ports: 
+      - 8099:8042
+      - 4242:4242
+    volumes:
+      - orthanc-storage:/var/lib/orthanc/db/
+    environment:
+      ORTHANC__REGISTERED_USERS: |
+        {"orthanc": "orthanc"}
+      VERBOSE_ENABLED: "true"
+      VERBOSE_STARTUP: "true"
+      OHIF_PLUGIN_ENABLED: "true"
+      ORTHANC__ORTHANC_EXPLORER_2__IS_DEFAULT_ORTHANC_UI: "true"
+      OSIMIS_WEB_VIEWER1_PLUGIN_ENABLED: "true"
+      DICOM_WEB_PLUGIN_ENABLED: "true"
+      ORTHANC__AUTHENTICATION_ENABLED: "true"
+      ORTHANC__DICOM_AET: "DEV"
+      ORTHANC__NAME: "DEVELOPMENT_ORTHANC"
+      ORTHANC_PLUGIN_ENABLED: "true"
+      STONE_WEB_VIEWER_PLUGIN_ENABLED: "true"
+      PYTHON_PLUGIN_ENABLED: "true"
+
+volumes:
+  orthanc-storage:
+    external: false
+    name: orthanc_storage-DEVELOPMENT_ORTHANC
