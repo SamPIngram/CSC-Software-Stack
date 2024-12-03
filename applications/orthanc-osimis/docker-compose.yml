@@ -3,7 +3,7 @@ services:
   orthanc:
     network_mode: bridge
     container_name: orthanc-${INSTANCE_ID}
-    image: osimis/orthanc:23.7.1-full-stable
+    image: orthancteam/orthanc:22.6.1
     restart: unless-stopped
     ports: ["${DICOM_PORT}:4242", "${APP_PORT}:8042"]
     volumes: ["orthanc-main-storage:/var/lib/orthanc/db:Z"]
