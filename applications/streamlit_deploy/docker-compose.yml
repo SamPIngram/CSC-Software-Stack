@@ -12,5 +12,5 @@ services:
     volumes:
       - ${DIR:-/dev/null}:${DIR:-/dev/null}
     ports:
-      - :8501
+      - ${ASSIGNED_PORT}:${STREAMLIT_PORT:-8501}
     restart: unless-stopped
