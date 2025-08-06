@@ -22,7 +22,7 @@ elif [ -z "${DIR}" ]; then
     fi
 elif [ -z "${REPO}" ]; then
     echo "No Github given, attempting to use directory."
-    if [ -d "$DIR" ]; then
+    if [ -d "${DIR}" ]; then
         cd $DIR
     else
         echo "Cannot access $DIR, sleeping for 60 minutes."
