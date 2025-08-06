@@ -1,5 +1,3 @@
----
-version: "3"
 services:
   streamlit:
     network_mode: bridge
@@ -14,3 +12,4 @@ services:
     ports:
       - ${ASSIGNED_PORT}:${STREAMLIT_PORT:-8501}
     restart: unless-stopped
+
