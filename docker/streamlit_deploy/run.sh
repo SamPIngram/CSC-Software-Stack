@@ -14,7 +14,7 @@ elif [ -z "${DIR}" ]; then
     source ~/.bashrc
     if [ -f "environment.yml" ]; then
         conda install -c conda-forge mamba -y
-        mamba env create -f environment.yml --prefix ~/.conda/envs/developer --force 
+        mamba env create -f environment.yml --prefix ~/.conda/envs/developer
         ~/.conda/envs/developer/bin/python streamlit run $ENTRY --server.port=8501 --server.address=0.0.0.0
     elif [ -f "requirements.txt" ]; then
         /miniconda/bin/python -m pip install -r requirements.txt --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
@@ -22,14 +22,20 @@ elif [ -z "${DIR}" ]; then
     fi
 elif [ -z "${REPO}" ]; then
     echo "No Github given, attempting to use directory."
-    cd $DIR
+    if [ -d "$TARGET_DIR" ]; then
+        cd $DIR
+    else
+        echo "Cannot access $DIR, sleeping for 60 minutes."
+        sleep 3600
+    fi
     /miniconda/bin/conda config --set ssl_verify False
     /miniconda/bin/conda update -y conda
     /miniconda/bin/conda init
     source ~/.bashrc
     if [ -f "environment.yml" ]; then
         conda install -c conda-forge mamba -y
-        mamba env create -f environment.yml --prefix ~/.conda/envs/developer --force 
+        rm ~/.conda/envs/developer
+        mamba env create -f environment.yml --prefix ~/.conda/envs/developer 
         ~/.conda/envs/developer/bin/python streamlit run $ENTRY --server.port=8501 --server.address=0.0.0.0
     elif [ -f "requirements.txt" ]; then
         /miniconda/bin/python -m pip install -r requirements.txt --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
