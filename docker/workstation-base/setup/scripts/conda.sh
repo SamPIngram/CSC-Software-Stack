@@ -22,10 +22,10 @@ conda config --remove channels defaults
 gpu=$(which nvidia-smi)
 if [[ $gpu == '/usr/bin/nvidia-smi' ]]; then
   echo Nvidia GPU found. Installing GPU standard env.
-  conda env create -f /setup/conda/standard_gpu_env.yaml --prefix ~/.conda/envs/developer --yes
+  conda env create -f /setup/conda/standard_gpu_env.yaml --prefix ~/.conda/envs/developer
 else
   echo No Nvidia GPU found. Installing standard env.
-  conda env create -f /setup/conda/standard_env.yaml --prefix ~/.conda/envs/developer --yes
+  conda env create -f /setup/conda/standard_env.yaml --prefix ~/.conda/envs/developer
 fi
 
 conda activate developer
