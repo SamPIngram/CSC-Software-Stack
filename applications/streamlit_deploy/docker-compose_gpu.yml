@@ -1,0 +1,25 @@
+services:
+  streamlit:
+    network_mode: bridge
+    image: ghcr.io/sampingram/csc-streamlit-deploy:latest
+    container_name: streamlit-${INSTANCE_ID}
+    environment:
+      - REPO=${REPO}
+      - DIR=${DIR}
+      - ENTRY=${ENTRY}
+    volumes:
+      - ${DIR:-/dev/null}:${DIR:-/dev/null}
+    ports:
+      - ${ASSIGNED_PORT}:${STREAMLIT_PORT:-8501}
+    shm_size: "24gb" #optional
+    deploy:
+      resources:
+        limits:
+          cpus: "8"
+          memory: "32g"
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ '${GPU_ID}' ]
+              capabilities: [ gpu ]
+    restart: unless-stopped
