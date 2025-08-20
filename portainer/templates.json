@@ -700,7 +700,7 @@
       "name": "streamlit_deploy",
       "platform": "Linux",
       "restart_policy": "unless-stopped",
-      "title": "Streamlit Deploy Framework",
+      "title": "Streamlit Deploy Framework (GPU)",
       "type": 3
     },
     {
