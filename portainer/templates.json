@@ -697,7 +697,7 @@
         "stackfile": "applications/streamlit_deploy/docker-compose_gpu.yml"
       },
       "logo": "https://raw.githubusercontent.com/SamPIngram/CSC-Software-Stack/main/misc/icons/streamlit.png",
-      "name": "streamlit_deploy",
+      "name": "streamlit_deploy_gpu",
       "platform": "Linux",
       "restart_policy": "unless-stopped",
       "title": "Streamlit Deploy Framework (GPU)",
